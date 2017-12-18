@@ -1,10 +1,23 @@
 /* background video styling */
+.video-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: gray;
+    opacity: 0.9;
+    overflow: hidden;
+    z-index: -99;
+}
+
 .fullscreen-bg {
     position: fixed;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
+    opacity: 0.5;
     overflow: hidden;
     z-index: -100;
 }
