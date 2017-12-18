@@ -21,11 +21,17 @@
         <a href="#">Stats</a>
         <a href="#">About</a>
     </nav>
+    <script id="hero-template" type="text/x-handlebars-template"></script>
     <div id="hero-view">
-
+        <a href="/{{}}">
+            <div class="">
+                <img src="{{image_url}}">
+                <h2>{{}}</h2>
+                <p>{{}}</p>
+            </div>
+        </a>
     </div>
     <div id="stats-view">
-
     </div>
     <footer class="page-footer">
         <div class="container">
@@ -57,8 +63,8 @@
         </div>
         <div class="footer-copyright">
             <div class="container">
-                Copyright © 2017 Dossier of the Ancients 
-                <a class="below-link" href="#!">github</a>
+                Copyright © 2017 Dossier of the Ancients
+                <a class="below-link" href="#">github</a>
             </div>
         </div>
     </footer>
