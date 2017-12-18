@@ -21,6 +21,17 @@ app.use(bodyparser.json());
 
 app.get('/', (req, res) => res.send('hello world'))
 
+app.get('/heroes', (req, res) => {
+  client.query(`SELECT * FROM heroes`)
+    .then(results => res.send(results))
+    .catch(console.error)
+})
+
+
+
+
+
+
 app.get('*', (req, res) => res.redirect('/'))
 
 loadDatabase();
@@ -38,7 +49,7 @@ function loadHeroes() {
             client.query(
               `INSERT INTO heroes( name, image_url, primary_attr, roles, move_speed, turn_rate)
             VALUES($1, $2, $3, $4, $5, $6) ON CONFLICT DO NOTHING;`,
-              [ele.name, ele.img, ele.primary_attr, ele.roles, ele.move_speed, ele.turn_rate]
+              [ele.localized_name, ele.img, ele.primary_attr, ele.roles, ele.move_speed, ele.turn_rate]
             )
           })
         })
