@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale= 1.0">
+    <title>Roger and Kevin: Bookie</title>
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/icon.css">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/modules/header.css">
+    <link rel="stylesheet" href="styles/modules/book_main.css">
+    <link rel="stylesheet" href="styles/modules/detail_main.css">
+    <link rel="stylesheet" href="styles/modules/form_main.css">
+    <link rel="stylesheet" href="styles/modules/error.css">
+    <link rel="stylesheet" href="styles/modules/footer.css">
+
+    <script id="book-list-template" type="text/x-handlebars-template">
+      <li class="book-items">
+        <div class="book-container">
+          <img src="{{image_url}}">
+            <div class="book-overlay">
+              <h3>{{title}}</h3>
+              <p>{{author}}</p>
+            <button class="results-detail-btn primary-btn"><a href="/search-results/{{book_id}}">View Detail</a></button>
+              <button class="book-detail-btn primary-btn"><a href="/books/{{book_id}}">View Detail</a></button>
+            </div>
+        </div>
+      </li>
+    </script>
+
+    <script id="detail-template" type="text/x-handlebars-template">
+      <div {{{search_class}}}>
+       <h3>{{title}}</h3>
+         <div class="details">
+           <p><span class="pull-left">{{author}}</span><span class="pull-right">{{isbn}}</span></p>
+           <img src="{{image_url}}">
+           <p id="detail-descritpion">{{description}}</p>
+           <p id="read-more">Read more...</p>
+         </div>
+         <button class="book-add primary-btn"><a href="/books/add/{{book_id}}">Add Book</a></button>
+         <span class="admin-btns" >
+          <button id="book-delete" class="primary-btn"><a href="/books/update/{{book_id}}">Update</a></button>
+          <button id="book-update" class="secondary-btn"><a href="/books/delete/{{book_id}}">Delete</a></button>
+        </span>
+      </div>
+    </script>
+    <script id="error-template" type="text/x-handlebars-template">
+      <h3>Oops</h3>
+      <p>{{status}}: {{statusText}}</p>
+    </script>
+  </head>
+  <body>
+    <header>
+      <h1>Bookie</h1>
+      <nav>
+        <div class="icon-menu"></div>
+        <ul id="menu-list">
+          <li><a href="/">View All Books</a></li>
+          <li><a href="/books/new">Add A New Book</a></li>
+          <li><a href="/search">Search</a></li>
+          <li><a href="/admin">Admin Login</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section id="book-view" class="container">
+        <ul id="book-list">
+        </ul>
+      </section>
+      <section id="detail-view" class="container">
+      </section>
+      <section id="form-view" class="container">
+        <form id="new-book-form">
+          <label>
+            <input name="title" type="text" placeholder="Title" required>
+          </label>
+          <label>
+            <input name="author" type="text" placeholder="Author" required>
+          </label>
+          <label>
+            <input name="isbn" type="text" placeholder="isbn" required>
+          </label>
+          <label>
+            <input name="image_url" type="url" placeholder="Image URL" required>
+          </label>
+          <label>
+            <textarea name="description" placeholder="Description" required></textarea>
+          </label>
+          <label>
+            <button id="new-book-submit" class="primary-btn" type="submit">Add Book</button>
+          </label>
+        </form>
+      </section>
+      <section id="update-view" class="container">
+        <form id="update-book-form">
+          <label>
+            <input name="title" type="text" placeholder="Title" required>
+          </label>
+          <label>
+            <input name="author" type="text" placeholder="Author" required>
+          </label>
+          <label>
+            <input name="isbn" type="text" placeholder="isbn" required>
+          </label>
+          <label>
+            <input name="image_url" type="url" placeholder="Image URL" required>
+          </label>
+          <label>
+            <textarea name="description" placeholder="Description" required></textarea>
+          </label>
+          <label>
+            <button id="update-book-submit" class="primary-btn" type="submit">Update Book</button>
+          </label>
+        </form>
+      </section>
+      <section id="search-results-view" class="container">
+        <ul id="search-results-list">
+        </ul>
+      </section>
+      <section id="search-view" class="container">
+        <h3>Book Search</h3>
+        <form id="search-form">
+          <label>
+            <input name="title" type="text" placeholder="Search by title">
+          </label>
+          <label><span>- AND / OR -</span></label>
+          <label>
+            <input name="author" type="text" placeholder="Search by author">
+          </label>
+          <label><span>- OR -</span></label>
+          <label>
+            <input name="isbn" type="text" placeholder="Search by isbn">
+          </label>
+          <label>
+            <button id="search-submit" class="primary-btn" type="submit">Search</button>
+          </label>
+        </form>
+      </section>
+      <section id="about-view" class="container">
+      </section>
+      <section id="admin-view" class="container">
+        <form id="admin-form">
+          <label>
+            <input name="token" type="password" placeholder="Enter Pass Phrase" required>
+          </label>
+          <label>
+            <button id="admin-token-submit" class="primary-btn" type="submit">Login</button>
+          </label>
+        </form>
+      </section>
+      <section id="error-view" class="container">
+      </section>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+      <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
+      <script src="scripts/views/errorView.js"></script>
+      <script src="scripts/models/book.js"></script>
+      <script src="scripts/views/bookView.js"></script>
+      <script src="scripts/views/adminView.js"></script>
+      <script src="scripts/views/routes.js"></script>
+    </main>
+    <footer>
+      <ul>
+        <li><span class="icon-glass" ></span></li>
+        <li><span class="icon-github" ></span></li>
+      </ul>
+    </footer>
+  </body>
+
+</html>
