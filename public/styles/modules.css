@@ -5,8 +5,8 @@
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: gray;
-    opacity: 0.6;
+    background-color: rgb(0, 0, 0);
+    opacity: 0.75;
     overflow: hidden;
     z-index: -99;
 }
