@@ -7,7 +7,7 @@
     <meta name="author" content="Kevin Miller, Mitchell Massie, Bill Odell, Jamie Williams">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="shortcut icon" type="image/png" href="/dotadossier/public/img/favicon.ico"/>
+    <link rel="shortcut icon" type="image/png" href="/dotadossier/public/img/favicon.ico" />
     <title>Dossier of the Ancients</title>
     <link rel="stylesheet" href="/dotadossier/public/styles/reset.css">
     <link rel="stylesheet" href="/dotadossier/public/styles/base.css">
@@ -17,20 +17,19 @@
 </head>
 <body>
     <nav class="menu" id="top-nav">
-        <ul>
-                <li><a class="active" href="#">Home</a></li>
-                <li><a href="#">Search</a></li>
-                <li><a href="#">Stats</a></li>
-                <li><a href="#">About</a></li>
-              </ul>
-              </nav>
+        <a class="active" href="#">Home</a>
+        <a href="#">Search</a>
+        <a href="#">Stats</a>
+        <a href="#">About</a>
     </nav>
     <script id="hero-template" type="text/x-handlebars-template">
         <div id="hero-view">
             <a href="/{{}}">
                 <div class="">
                     <h2>{{hero_name}}</h2>
-                    <a href="/"><img src="{{image_url}}"></a>
+                    <a href="/">
+                        <img src="{{image_url}}">
+                    </a>
                 </div>
             </a>
         </div>
@@ -38,12 +37,12 @@
     <script id="stats-template" type="text/x-handlebars-template">
         <div id="stats-view">
             <a href="/{{}}">
-            <p>{{id}}</p>
-            <p>{{hero_icon}}</p>
-            <p>{{id}}</p>
-            <p>{{pro_pick}}</p>
-            <p>{{pro_wins}}</p>
-            <p>{{pro_ban}}</p>
+                <p>{{id}}</p>
+                <p>{{hero_icon}}</p>
+                <p>{{id}}</p>
+                <p>{{pro_pick}}</p>
+                <p>{{pro_wins}}</p>
+                <p>{{pro_ban}}</p>
         </div>
     </script>
     <footer class="page-footer">
