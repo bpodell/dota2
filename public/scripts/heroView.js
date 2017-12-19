@@ -3,7 +3,7 @@ var app = app || {};
 (function(module) {
   let heroView = {};
   function appendHeroView() {
-    app.Hero.all.forEach(hero => $('#hero-view').append(hero.toHtml()))
+    app.Hero.all.forEach(hero => $('#hero-view-list').append(hero.toHtml()))
   }
 
   heroView.initIndexPage = () => {
