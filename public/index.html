@@ -20,12 +20,13 @@
     <script id="hero-template" type="text/x-handlebars-template">
         <li data-hero-id="{{hero_id}}">
                 <div>
-                    <img src="http://cdn.dota2.com{{image_url}}">
                     <h2>{{name}}</h2>
+                    <img src="http://cdn.dota2.com{{image_url}}">
                 </div>
         </li>
     </script>
-  <script id="stats-template" type="text/x-handlebars-template">
+
+    <script id="stats-template" type="text/x-handlebars-template">
         <div>
             <a href="/{{}}">
                 <p>{{id}}</p>
@@ -34,17 +35,56 @@
                 <p>{{pro_pick}}</p>
                 <p>{{pro_wins}}</p>
                 <p>{{pro_ban}}</p>
+            </a>
         </div>
     </script>
+
+    <script id="detailed-stats-template" type="text/x-handlebars-template">
+            <div>
+                <a href="/{{}}">
+                    <p>{{base_health_regen}}</p>
+                    <p>{{base_mana_regen}}</p>
+                    <p>{{base_mr}}</p>
+                    <p>{{base_attack_min}}</p>
+                    <p>{{base_attack_max}}</p>
+                    <p>{{base_str}}</p>
+                    <p>{{base_agi}}</p>
+                    <p>{{base_int}}</p>
+                    <p>{{str_gain}}</p>
+                    <p>{{agi_gain}}</p>
+                    <p>{{int_gain}}</p>
+                    <p>{{attack_range}}</p>
+                    <p>{{projectile_speed}}</p>
+                    <p>{{attack_rate}}</p>
+                    <p>{{move_speed}}</p>
+                    <p>{{turn_rate}}</p>
+                    <p>{{pro_win}}</p>
+                    <p>{{pro_pick}}</p>
+                    <p>{{pro_ban}}</p>
+                    <p>{{primary_attr}}</p>
+                    <p>{{attack_type}}</p>
+                    <p>{{roles}}</p>
+                </a>
+            </div>
+            <div>
+                <a href="/{{}}">
+                    <
+                    
+                </a>
+            </div>
+        </script>
 
 </head>
 <body>
     <header>
         <nav class="menu" id="top-nav">
-            <a class="active" href="#">Home</a>
-            <a href="#">Search</a>
-            <a href="#">Stats</a>
-            <a href="#">About</a>
+            <section id="icon"><img src="img/dota2icon.png"></section>
+            <div id="nav-menu">
+                <section class="nav-item"><a class="active" href="#">Home</a></section>
+                <section class="nav-item"><a href="#">Heroes</a></section>
+                <section class="nav-item"><a href="#">Pros</a></section>
+                <section class="nav-item"><a href="#">About</a></section>
+            </div>
         </nav>
     </header>
 
@@ -101,5 +141,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
     <script src="/scripts/hero.js"></script>
     <script src="/scripts/heroView.js"></script>
+    <script src="/scripts/view.js"></script>
 </body>
 </html>

@@ -1,0 +1,86 @@
+
+@media only screen and (max-width: 600px) {
+    
+    .fullscreen-bg {
+        background: url('../img/aegis.png') center center / cover no-repeat;
+    }
+
+    .fullscreen-bg__video {
+        display: none;
+    }
+
+    header {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+    
+    header nav {
+        display: block;
+        margin: 0 auto;
+    }
+
+    header nav section img {
+        margin: 0 auto;
+        display: block;
+    }
+
+    #nav-menu {
+        display: none;
+    }
+
+    .nav-item {
+        display: block;
+        width: 100%;
+        height: 4em;
+        line-height: 4em;
+        text-align: center;
+        background-color: black;
+        border: 1px solid gray;
+        color: #252321;
+    }
+
+    #icon:click + #nav-menu {
+        display: block;
+    }
+
+
+
+
+
+
+    header nav a {
+        color: #A376F7;
+        text-align: center;
+        font-size: 25px;
+        padding: 1%;
+        width: 20%;
+    }
+
+    nav a:hover {
+        color: #3681EA;
+    }
+
+    nav a:hover {
+        text-shadow: 0px -2px 0px rgba(0, 0, 0, 1), 0 0 5px rgba(255, 255, 255, 0.8), 0 -4px 15px rgba(255, 255, 255, 0.5);
+    }
+
+    ul li {
+        margin: 4%;
+    }
+
+    ul li div h2 {
+        text-align: center;
+    }
+
+    ul li div img {
+        display: block;
+        margin: 0 auto;
+        padding: 2.5%;
+    }
+}
+
+@media only screen and (min-width: 960px) {
+
+}
+

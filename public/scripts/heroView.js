@@ -3,7 +3,7 @@ var app = app || {};
 (function(module) {
   let heroView = {};
   function appendHeroView() {
-    app.Hero.all.forEach(hero => $('#hero-view').append(hero.toHtml()))
+    app.Hero.all.forEach(hero => $('#hero-view-list').append(hero.toHtml()))
   }
 
   heroView.initIndexPage = () => {
@@ -19,7 +19,7 @@ var app = app || {};
 
 $(function() {
   app.heroView.initIndexPage()
-  $('#hero-view').on('click', 'li', function() {
+  $('#hero-view-list').on('click', 'li', function() {
     console.log($(this).attr('data-hero-id'));
     $.get(`/stats/${$(this).attr('data-hero-id')}`)
       .then(console.log)
