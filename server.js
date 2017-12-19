@@ -42,20 +42,38 @@ app.listen(PORT, () => console.log(`listening on port : ${PORT}`))
 
 /******************/
 
+// function loadHeroes() {
+//   console.log('load HEROES');
+//   client.query(`SELECT COUNT(*) FROM  heroes`)
+//     .then(results => {
+//       if (! parseInt(results.rows[0].count)){
+//         fs.readFile('./data/heroesData.json', 'utf-8', (err, fd)=> {
+//           JSON.parse(fd).forEach(ele => {
+//             client.query(
+//               `INSERT INTO heroes( name, image_url, primary_attr, roles, move_speed, turn_rate, hero_id)
+//             VALUES($1, $2, $3, $4, $5, $6, $7) ON CONFLICT DO NOTHING;`,
+//               [ele.localized_name, ele.img, ele.primary_attr, ele.roles, ele.move_speed, ele.turn_rate, ele.id]
+//             )
+//           })
+//         })
+//       }
+//     })
+// }
+
 function loadHeroes() {
   console.log('load HEROES');
   client.query(`SELECT COUNT(*) FROM  heroes`)
     .then(results => {
       if (! parseInt(results.rows[0].count)){
-        fs.readFile('./data/heroesData.json', 'utf-8', (err, fd)=> {
-          JSON.parse(fd).forEach(ele => {
+        superagent.get('https://api.opendota.com/api/heroStats')
+          .then(response => {response.body.forEach(ele => {
             client.query(
               `INSERT INTO heroes( name, image_url, primary_attr, roles, move_speed, turn_rate, hero_id)
             VALUES($1, $2, $3, $4, $5, $6, $7) ON CONFLICT DO NOTHING;`,
               [ele.localized_name, ele.img, ele.primary_attr, ele.roles, ele.move_speed, ele.turn_rate, ele.id]
             )
           })
-        })
+          })
       }
     })
 }
@@ -78,3 +96,18 @@ function loadDatabase(){
 
 
 }
+
+// function checkHeaders() {
+//   let eTag;
+//   let dbTag;
+//   client.query(`SELECT etag_id FROM etag`)
+//   .then(result => dbTag = result.rows[0])
+//   superagent.head('https://api.opendota.com/api/heroStats'
+//   ).then((data, status, headers) => {
+//     eTag = headers.getResponseHeader('eTag');
+//     if (dbTag !== eTag) {
+
+//     }
+//   })
+//   }
+// }
