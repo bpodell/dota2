@@ -8,6 +8,9 @@
     }
     #hero-view {
         float: left;
+        position: relative;
+        left: 46px;
+        top: 90px;
 
     }
      section li {
