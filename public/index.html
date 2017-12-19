@@ -39,24 +39,29 @@
 
 </head>
 <body>
-    <nav class="menu" id="top-nav">
-        <a class="active" href="#">Home</a>
-        <a href="#">Search</a>
-        <a href="#">Stats</a>
-        <a href="#">About</a>
-    </nav>
+    <header>
+        <nav class="menu" id="top-nav">
+            <a class="active" href="#">Home</a>
+            <a href="#">Search</a>
+            <a href="#">Stats</a>
+            <a href="#">About</a>
+        </nav>
+    </header>
 
     <div class="video-overlay"></div>
 
     <div class="fullscreen-bg">
-        <video loop muted poster="img/ti7-video-frame.png" class="fullscreen-bg__video">
+        <!-- <video loop muted poster="img/ti7-video-frame.png" class="fullscreen-bg__video">
             <source src="video/ti7-opening-reel.mp4" type="video/mp4">
-        </video>
+        </video> -->
     </div>
+    <main>
+        <section id="hero-view">
+            <ul id="hero-view-list"></ul>
+        </section>
 
-    <ul id="hero-view"></ul>
-
-    <ul id="stats-view"></ul>
+        <section id="stats-view"></section>
+    </main>   
     <footer class="page-footer">
         <div class="container">
             <div class="row">
