@@ -17,7 +17,6 @@ var app = app || {};
   Hero.all = [];
   Hero.prototype.toHtml = function() {
     var template = Handlebars.compile($('#hero-template').text());
-    console.log(template(this))
     return template(this);
   }
   
