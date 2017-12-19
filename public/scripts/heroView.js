@@ -19,4 +19,9 @@ var app = app || {};
 
 $(function() {
   app.heroView.initIndexPage()
+  $('#hero-view').on('click', 'li', function() {
+    console.log($(this).attr('data-hero-id'));
+    $.get(`/stats/${$(this).attr('data-hero-id')}`)
+      .then(console.log)
+  } )
 })
