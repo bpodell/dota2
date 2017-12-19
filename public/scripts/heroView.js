@@ -7,14 +7,29 @@ var app = app || {};
   }
 
   heroView.initIndexPage = () => {
-    $.get('/heroes')
-      .then(data => app.Hero.all = data.map(hero => new app.Hero(hero)))
-      .then(appendHeroView)
-      .catch(console.error)
-      
-    //   
+    let heroData;
+    if (localStorage.heroes) {
+      console.log('inside if')
+      setAll(JSON.parse(localStorage.heroes))
+
+    } else {
+      $.get('/heroes')
+      // .then(data => )
+        .then(data => {
+          setAll(data)
+          localStorage.heroes = JSON.stringify(data)})
+        // .then(appendHeroView)
+        .catch(console.error)
+    }
+    console.log(heroData)
+    
+    console.log(app.Hero.all)
   }
   module.heroView = heroView
+  function setAll (heroData) {
+    app.Hero.all = heroData.map(hero => new app.Hero(hero))
+    appendHeroView();
+  }
 })(app);
 
 $(function() {

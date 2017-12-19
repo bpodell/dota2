@@ -37,7 +37,7 @@ app.get('/stats/:id', (req, res) => {
 
 app.get('*', (req, res) => res.redirect('/'))
 
-loadDatabase();
+createDatabase();
 app.listen(PORT, () => console.log(`listening on port : ${PORT}`))
 
 /******************/
@@ -61,24 +61,37 @@ app.listen(PORT, () => console.log(`listening on port : ${PORT}`))
 // }
 
 function loadHeroes() {
-  console.log('load HEROES');
+  console.log('load heroes')
   client.query(`SELECT COUNT(*) FROM  heroes`)
     .then(results => {
       if (! parseInt(results.rows[0].count)){
         superagent.get('https://api.opendota.com/api/heroStats')
-          .then(response => {response.body.forEach(ele => {
-            client.query(
-              `INSERT INTO heroes( name, image_url, primary_attr, roles, move_speed, turn_rate, hero_id)
+          .then(response => {
+            let dbTag = response.headers.etag
+            response.body.forEach(ele => {
+              client.query(
+                `INSERT INTO heroes( name, image_url, primary_attr, roles, move_speed, turn_rate, hero_id)
             VALUES($1, $2, $3, $4, $5, $6, $7) ON CONFLICT DO NOTHING;`,
-              [ele.localized_name, ele.img, ele.primary_attr, ele.roles, ele.move_speed, ele.turn_rate, ele.id]
-            )
-          })
+                [ele.localized_name, ele.img, ele.primary_attr, ele.roles, ele.move_speed, ele.turn_rate, ele.id]
+              )
+                .then(
+                  client.query(
+                    `TRUNCATE TABLE etag`
+                  )
+                    .then(
+                      client.query(
+                        `INSERT INTO etag (etag_id) VALUES ($1)`,
+                        [dbTag]
+                      )
+                    )
+                )
+            })
           })
       }
     })
 }
 
-function loadDatabase(){
+function createDatabase(){
   console.log('loading database')
   client.query(`
     CREATE TABLE IF NOT EXISTS
@@ -91,23 +104,30 @@ function loadDatabase(){
       move_speed VARCHAR(10),
       turn_rate VARCHAR(10)
     );`)
-    .then(loadHeroes)
+    .then(client.query(`CREATE TABLE IF NOT EXISTS
+    etag (
+      etag_id VARCHAR(255)
+    );`))
+    .then(checkHeaders)
     .catch(console.error);
 
 
 }
 
-// function checkHeaders() {
-//   let eTag;
-//   let dbTag;
-//   client.query(`SELECT etag_id FROM etag`)
-//   .then(result => dbTag = result.rows[0])
-//   superagent.head('https://api.opendota.com/api/heroStats'
-//   ).then((data, status, headers) => {
-//     eTag = headers.getResponseHeader('eTag');
-//     if (dbTag !== eTag) {
-
-//     }
-//   })
-//   }
-// }
+function checkHeaders() {
+  let eTag;
+  let dbTag;
+  client.query(`SELECT etag_id FROM etag`)
+    .then(result => dbTag = result.rows[0])
+  superagent.head('https://api.opendota.com/api/heroStats')
+    .then((res) => {
+      eTag = res.headers.etag;
+      console.log(res.headers)
+      console.log(eTag)
+      console.log(dbTag)
+      if (dbTag.etag_id !== eTag) {
+        client.query('TRUNCATE TABLE heroes')
+          .then(loadHeroes)
+      }
+    })
+}
