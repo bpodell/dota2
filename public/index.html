@@ -60,10 +60,25 @@
                     <p>Base Intelligence Gain: {{int_gain}}</p>
                     <p>Attack Type: {{attack_type}}</p>
                     <p>Attack Range: {{attack_range}}</p>
-                    <p>Projectile Speed: {{projectile_speed}}</p>
+
+                    {{#if projectile_speed}}
+                        <p>Projectile Speed: {{projectile_speed}}</p>
+                    {{else}}
+                        <p>Projectile Speed: N/A</p>
+                    {{/if}}
+
                     <p>Attack Rate: {{attack_rate}}</p>
                     <p>Move Speed: {{move_speed}}</p>
-                    <p>Turn Rate: {{turn_rate}}</p>
+                </div>
+
+                <div id="average-stats">Averages
+                    <p>Gold per Minute: {{gold_per_min}}</p>
+                    <p>XP per Minute: {{xp_per_min}}</p>
+                    <p>Kills per Minute: {{kills_per_min}}</p>
+                    <p>Last Hits per Minute: {{last_hits_per_min}}</p>
+                    <p>Hero Damage per Minute {{hero_damage_per_min}}</p>
+                    <p>Hero Healing per Minute: {{hero_healing_per_min}}</p>
+                    <p>Tower Damage: {{tower_damage}}</p>
                 </div>
             </div>
             <div>

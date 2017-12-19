@@ -1,8 +1,7 @@
-
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 660px) {
     
     .fullscreen-bg {
-        background: url('../img/aegis.png') center center / cover no-repeat;
+        background: url('../img/allHeroesEdited.jpg') center center / cover no-repeat;
     }
 
     .fullscreen-bg__video {
@@ -95,21 +94,26 @@
     }
 }
 
-@media only screen and (min-width: 601px) and (max-width: 959px) {
+@media only screen and (min-width: 661px) and (max-width: 959px) {
 
     .fullscreen-bg {
-        background: url('../img/aegis.png') center center / cover no-repeat;
+        background: url('../img/allHeroesEdited.jpg') center center / cover no-repeat;
     }
 
     .fullscreen-bg__video {
         display: none;
     }
 
-     header {
+    header {
         display: block;
         width: 100%;
         height: 100%;
-        /* background-color: black; */
+        background-color: black;
+    }
+    
+    header nav {
+        display: block;
+        margin: 0 auto;
     }
 
     header nav section img {
@@ -117,17 +121,80 @@
         display: block;
     }
 
+    #nav-menu {
+        display: none;
+    }
+
+    .nav-item {
+        display: block;
+        width: 100%;
+        height: 4em;
+        line-height: 4em;
+        text-align: center;
+        background-color: black;
+        /* border: 1px solid gray; */
+        /* color: #252321; */
+    }
+
+    .nav-item-contrast {
+        display: block;
+        width: 100%;
+        height: 4em;
+        line-height: 4em;
+        text-align: center;
+        background-color: #8d1c17;
+    }
+
     main section ul li {
         display: inline-block;
         width: 300px;
         height: 200px;
-        margin: 4%;
+        margin: 0 auto;
         background-color: black;
         border: 4px solid #8d1c17;
+    }
+
+    ul li div {
+        margin: 0 auto;
+    }
+
+    ul li div h2 {
+        text-align: center;
+        padding-top: 9px;
+        padding-bottom: 3px;
+    }
+
+    ul li div img {
+        display: block;
+        margin: 0 auto;
+        padding: 2.5%;
     }
 }
 
 @media only screen and (min-width: 960px) {
-    
+    .fullscreen-bg {
+        background: url('../img/allHeroesEdited.jpg') center center / cover no-repeat;
+    }
+
+    .fullscreen-bg__video {
+        display: none;
+    }
 }
 
+
+
+footer {
+    background-color: black;
+    display: block;
+    width: 100%;
+    height: 200px;
+    z-index: 0;
+}
+
+footer ul {
+    display: block;
+}
+
+footer ul li {
+    display: inline-block;
+}
