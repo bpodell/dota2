@@ -1,0 +1,14 @@
+@media only screen and (min-width: 960px)  {
+
+    li {
+        float: left;
+    
+    }
+}
+
+@media only screen and (max-width: 600px)  {
+    li {
+        float: left;
+        margin: 0 auto;
+    }
+}
