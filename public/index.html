@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+
     <meta name="description" content="Dota2 Statistics And Information">
     <meta name="keywords" content="HTML,CSS,XML,JavaScript,jQuery,Handlebars.js">
     <meta name="author" content="Kevin Miller, Mitchell Massie, Bill Odell, Jamie Williams">
@@ -14,27 +15,19 @@
     <link rel="stylesheet" href="/public/styles/layout.css">
     <link rel="stylesheet" href="/public/styles/modules.css">
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.amd.min.js"></script>
-</head>
-<body>
-    <nav class="menu" id="top-nav">
-        <a class="active" href="#">Home</a>
-        <a href="#">Search</a>
-        <a href="#">Stats</a>
-        <a href="#">About</a>
-    </nav>
+
     <script id="hero-template" type="text/x-handlebars-template">
-        <div id="hero-view">
+        <li>
             <a href="/{{}}">
                 <div class="">
-                    <h2>{{hero_name}}</h2>
-                    <a href="/">
-                        <img src="{{image_url}}">
-                    </a>
+                    <img src="{{image_url}}">
+                    <h2>{{}}</h2>
+                    <p>{{}}</p>
                 </div>
             </a>
-        </div>
+        </li>
     </script>
-    <script id="stats-template" type="text/x-handlebars-template">
+  <script id="stats-template" type="text/x-handlebars-template">
         <div id="stats-view">
             <a href="/{{}}">
                 <p>{{id}}</p>
@@ -45,6 +38,25 @@
                 <p>{{pro_ban}}</p>
         </div>
     </script>
+</head>
+<body>
+    <nav class="menu" id="top-nav">
+        <a class="active" href="#">Home</a>
+        <a href="#">Search</a>
+        <a href="#">Stats</a>
+        <a href="#">About</a>
+    </nav>
+    <div class="video-overlay"></div>
+
+    <div class="fullscreen-bg">
+        <video loop muted autoplay poster="img/ti7-video-frame.png" class="fullscreen-bg__video">
+            <source src="video/ti7-opening-reel.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <ul id="hero-view"></ul>
+
+    <ul id="stats-view"></ul>
     <footer class="page-footer">
         <div class="container">
             <div class="row">
