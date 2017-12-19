@@ -1,14 +1,23 @@
 @media only screen and (min-width: 960px)  {
 
-    li {
+    li img {
+     border: solid 5px #9B7BF0;
+    }
+    li h2  {
+       text-align: center; 
+    }
+    #hero-view {
         float: left;
-    
+
+    }
+     section li {
+         float: left;
+
     }
 }
 
 @media only screen and (max-width: 600px)  {
     li {
-        float: left;
-        margin: 0 auto;
+
     }
 }
