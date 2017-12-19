@@ -20,31 +20,86 @@
     <script id="hero-template" type="text/x-handlebars-template">
         <li data-hero-id="{{hero_id}}">
                 <div>
-                    <img src="http://cdn.dota2.com{{image_url}}">
                     <h2>{{name}}</h2>
+                    <img src="http://cdn.dota2.com{{image_url}}">
                 </div>
         </li>
     </script>
-  <script id="stats-template" type="text/x-handlebars-template">
-        <div>
-            <a href="/{{}}">
-                <p>{{id}}</p>
-                <p>{{hero_icon}}</p>
-                <p>{{id}}</p>
-                <p>{{pro_pick}}</p>
-                <p>{{pro_wins}}</p>
-                <p>{{pro_ban}}</p>
-        </div>
-    </script>
+
+    <script id="stats-template" type="text/x-handlebars-template">
+            <div>
+                <div>
+                    <h2>{{name}}</h2>
+                    <img src="http://cdn.dota2.com{{image_url}}">
+                </div>
+
+                <div id="basic-stats">
+                    <p>{{id}}</p>
+                    <p>{{hero_icon}}</p>
+                    <p>Roles: {{roles}}</p>
+                    <p>Primary Attribute: {{primary_attr}}</p>
+                    <p>Pro Pick Rate: {{pro_pick}}</p>
+                    <p>Pro Win Rate: {{pro_wins}}</p>
+                    <p>Pro Ban Rate: {{pro_ban}}</p>
+                </div>
+
+
+                <div id="detailed-stats">
+                    <p>Base HP: {{base_hp}}</p>
+                    <p>Base Health Regen: {{base_health_regen}}</p>
+                    <p>Base Mana Regen: {{base_mana_regen}}</p>
+                    <p>Base Armor: {{base_armor}}</p>
+                    <p>Base Magic Resist: {{base_mr}}</p>
+                    <p>Base Attack Min: {{base_attack_min}}</p>
+                    <p>Base Attack Max: {{base_attack_max}}</p>
+                    <p>Base Strength: {{base_str}}</p>
+                    <p>Base Strength Gain: {{str_gain}}</p>
+                    <p>Base Agility: {{base_agi}}</p>
+                    <p>Base Agility Gain: {{agi_gain}}</p>
+                    <p>Base Intelligence: {{base_int}}</p>
+                    <p>Base Intelligence Gain: {{int_gain}}</p>
+                    <p>Attack Type: {{attack_type}}</p>
+                    <p>Attack Range: {{attack_range}}</p>
+
+                    {{#if projectile_speed}}
+                        <p>Projectile Speed: {{projectile_speed}}</p>
+                    {{else}}
+                        <p>Projectile Speed: N/A</p>
+                    {{/if}}
+
+                    <p>Attack Rate: {{attack_rate}}</p>
+                    <p>Move Speed: {{move_speed}}</p>
+                </div>
+
+                <div id="average-stats">Averages
+                    <p>Gold per Minute: {{gold_per_min}}</p>
+                    <p>XP per Minute: {{xp_per_min}}</p>
+                    <p>Kills per Minute: {{kills_per_min}}</p>
+                    <p>Last Hits per Minute: {{last_hits_per_min}}</p>
+                    <p>Hero Damage per Minute {{hero_damage_per_min}}</p>
+                    <p>Hero Healing per Minute: {{hero_healing_per_min}}</p>
+                    <p>Tower Damage: {{tower_damage}}</p>
+                </div>
+            </div>
+            <div>
+                <a href="/{{}}">
+                    <
+                    
+                </a>
+            </div>
+        </script>
 
 </head>
 <body>
     <header>
-        <nav class="menu" id="top-nav">
-            <a class="active" href="#">Home</a>
-            <a href="#">Search</a>
-            <a href="#">Stats</a>
-            <a href="#">About</a>
+        <nav id="top-nav">
+            <section id="icon"><img src="img/dota2icon.png"></section>
+            <div id="nav-menu">
+                <section class="nav-item-contrast"><a class="active" href="#">Home</a></section>
+                <section class="nav-item"><a href="#">Heroes</a></section>
+                <section class="nav-item-contrast"><a href="#">Pros</a></section>
+                <section class="nav-item"><a href="#">About</a></section>
+            </div>
         </nav>
     </header>
 
@@ -101,5 +156,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
     <script src="/scripts/hero.js"></script>
     <script src="/scripts/heroView.js"></script>
+    <script src="/scripts/view.js"></script>
 </body>
 </html>
