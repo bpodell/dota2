@@ -1,11 +1,22 @@
+var app = app || {};
 
 (function(module) {
+  let heroView = {};
+  function appendHeroView() {
+    app.Hero.all.forEach(hero => $('#hero-view').append(hero.toHtml()))
+  }
 
-
-    heroView.initIndexPage () => {
-        $.get('/heroes')
-        .then(data => Hero.all = data.map(hero => new app.Hero(hero)))
-        .catch(console.error)
-        }
-    module.heroView = heroView
+  heroView.initIndexPage = () => {
+    $.get('/heroes')
+      .then(data => app.Hero.all = data.map(hero => new app.Hero(hero)))
+      .then(appendHeroView)
+      .catch(console.error)
+      
+    //   
+  }
+  module.heroView = heroView
 })(app);
+
+$(function() {
+  app.heroView.initIndexPage()
+})

@@ -23,7 +23,7 @@ app.get('/', (req, res) => res.send('hello world'))
 
 app.get('/heroes', (req, res) => {
   client.query(`SELECT * FROM heroes`)
-    .then(results => res.send(results))
+    .then(results => res.send(results.rows))
     .catch(console.error)
 })
 
