@@ -27,6 +27,11 @@ app.get('/heroes', (req, res) => {
     .then(results => res.send(results.rows))
     .catch(console.error)
 })
+// app.get('/etag' (req, res) => {
+//   client.query(`SELECT etag_id FROM etag`)
+//   .then(results => res.send(results.rows[0].etag))
+//   .catch(console.error)
+// })
 
 app.get('/stats/:id', (req, res) => {
   let url = `https://api.opendota.com/api/benchmarks?hero_id=${req.params.id}`;
@@ -70,9 +75,9 @@ function loadHeroes() {
             let dbTag = response.headers.etag
             response.body.forEach(ele => {
               client.query(
-                `INSERT INTO heroes( name, image_url, primary_attr, roles, move_speed, turn_rate, hero_id)
-            VALUES($1, $2, $3, $4, $5, $6, $7) ON CONFLICT DO NOTHING;`,
-                [ele.localized_name, ele.img, ele.primary_attr, ele.roles, ele.move_speed, ele.turn_rate, ele.id]
+                `INSERT INTO heroes(hero_id, name, img, primary_attr, roles, move_speed, turn_rate, base_health, base_health_regen, base_mana, base_mana_regen, base_armor, base_mr, base_attack_min, base_attack_max, base_str, base_agi, base_int, str_gain, agi_gain, int_gain, attack_range, projectile_speed, attack_rate, pro_win, pro_pick, pro_ban)
+            VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24, $25, $26, $27) ON CONFLICT DO NOTHING;`,
+                [ele.id, ele.localized_name, ele.img, ele.primary_attr, ele.roles , ele.move_speed, ele.turn_rate, ele.base_health, ele.base_health_regen, ele.base_mana, ele.base_mana_regen, ele.base_armor, ele.base_mr, ele.base_attack_min, ele.base_attack_max, ele.base_str, ele.base_agi, ele.base_int, ele.str_gain, ele.agi_gain, ele.int_gain, ele.attack_range, ele.projectile_speed, ele.attack_rate, ele.pro_win, ele.pro_pick, ele.pro_ban]
               )
                 .then(
                   client.query(
@@ -98,11 +103,31 @@ function createDatabase(){
     heroes (
       hero_id VARCHAR(5),
       name VARCHAR(50),
-      image_url VARCHAR(255),
+      img VARCHAR(255),
       primary_attr VARCHAR(10),
       roles VARCHAR(255),
       move_speed VARCHAR(10),
-      turn_rate VARCHAR(10)
+      turn_rate VARCHAR(10),
+      base_health VARCHAR(10),
+      base_health_regen VARCHAR(10),
+      base_mana VARCHAR(10),
+      base_mana_regen VARCHAR(10),
+      base_armor VARCHAR(10),
+      base_mr VARCHAR(10),
+      base_attack_min VARCHAR(10),
+      base_attack_max VARCHAR(10),
+      base_str VARCHAR(10),
+      base_agi VARCHAR(10),
+      base_int VARCHAR(10),
+      str_gain VARCHAR(10),
+      agi_gain VARCHAR(10),
+      int_gain VARCHAR(10),
+      attack_range VARCHAR(10),
+      projectile_speed VARCHAR(10),
+      attack_rate VARCHAR(10),
+      pro_win VARCHAR(10),
+      pro_pick VARCHAR(10),
+      pro_ban VARCHAR(10)
     );`)
     .then(client.query(`CREATE TABLE IF NOT EXISTS
     etag (
@@ -118,14 +143,14 @@ function checkHeaders() {
   let eTag;
   let dbTag;
   client.query(`SELECT etag_id FROM etag`)
-    .then(result => dbTag = result.rows[0])
+    .then(result => result.rows[0] ? dbTag = result.rows[0] : dbTag = '')
   superagent.head('https://api.opendota.com/api/heroStats')
     .then((res) => {
       eTag = res.headers.etag;
       console.log(res.headers)
       console.log(eTag)
       console.log(dbTag)
-      if (dbTag.etag_id !== eTag) {
+      if (dbTag !== eTag) {
         client.query('TRUNCATE TABLE heroes')
           .then(loadHeroes)
       }
