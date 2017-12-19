@@ -18,7 +18,7 @@
     
 
     <script id="hero-template" type="text/x-handlebars-template">
-        <li data-hero-id="{{hero_id}}">
+        <li data-hero-id="{{hero_id}}" data-hero-index="{{arrayIndex}}">
                 <div>
                     <img src="http://cdn.dota2.com{{img}}">
                     <h2>{{name}}</h2>
@@ -101,5 +101,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
     <script src="/scripts/hero.js"></script>
     <script src="/scripts/heroView.js"></script>
+    <script src="/scripts/stats.js"></script>
 </body>
 </html>
