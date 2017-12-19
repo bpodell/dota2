@@ -11,25 +11,22 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="shortcut icon" type="image/png" href="/dotadossier/public/img/favicon.ico" />
     <title>Dossier of the Ancients</title>
-    <link rel="stylesheet" href="/public/styles/reset.css">
-    <link rel="stylesheet" href="/public/styles/base.css">
-    <link rel="stylesheet" href="/public/styles/layout.css">
-    <link rel="stylesheet" href="/public/styles/modules.css">
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.amd.min.js"></script>
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/modules.css">
+    
 
     <script id="hero-template" type="text/x-handlebars-template">
         <li>
-            <a href="/{{}}">
-                <div class="">
-                    <img src="{{image_url}}">
-                    <h2>{{}}</h2>
-                    <p>{{}}</p>
+                <div>
+                    <img src="http://cdn.dota2.com{{image_url}}">
+                    <h2>{{name}}</h2>
                 </div>
-            </a>
         </li>
     </script>
   <script id="stats-template" type="text/x-handlebars-template">
-        <div id="stats-view">
+        <div>
             <a href="/{{}}">
                 <p>{{id}}</p>
                 <p>{{hero_icon}}</p>
@@ -52,7 +49,7 @@
     <div class="video-overlay"></div>
 
     <div class="fullscreen-bg">
-        <video loop muted autoplay poster="img/ti7-video-frame.png" class="fullscreen-bg__video">
+        <video loop muted poster="img/ti7-video-frame.png" class="fullscreen-bg__video">
             <source src="video/ti7-opening-reel.mp4" type="video/mp4">
         </video>
     </div>
@@ -96,6 +93,8 @@
         </div>
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+    <script src="/scripts/hero.js"></script>
+    <script src="/scripts/heroView.js"></script>
 </body>
 </html>
