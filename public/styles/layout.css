@@ -13,6 +13,7 @@
         display: block;
         width: 100%;
         height: 100%;
+        background-color: black;
     }
     
     header nav {
@@ -36,8 +37,17 @@
         line-height: 4em;
         text-align: center;
         background-color: black;
-        border: 1px solid gray;
-        color: #252321;
+        /* border: 1px solid gray; */
+        /* color: #252321; */
+    }
+
+    .nav-item-contrast {
+        display: block;
+        width: 100%;
+        height: 4em;
+        line-height: 4em;
+        text-align: center;
+        background-color: #8d1c17;
     }
 
     #icon:click + #nav-menu {
@@ -50,7 +60,7 @@
 
 
     header nav a {
-        color: #A376F7;
+        color: white;
         text-align: center;
         font-size: 25px;
         padding: 1%;
@@ -66,11 +76,21 @@
     }
 
     ul li {
-        margin: 4%;
+        width: 300px;
+        height: 200px;
+        margin: 4% auto;
+        background-color: black;
+        border: 4px solid #8d1c17;
+    }
+
+    ul li div {
+
+        margin: 0 auto;
     }
 
     ul li div h2 {
         text-align: center;
+        padding-top: 12px;
     }
 
     ul li div img {

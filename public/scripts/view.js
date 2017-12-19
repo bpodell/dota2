@@ -8,5 +8,6 @@
 // downloadingVideo.src = "video/ti7-opening-reel";
 
 $('#icon').on('click', function () {
-  $('#nav-menu').css('display', 'block');
+  $('#nav-menu').toggle();
 })
+
