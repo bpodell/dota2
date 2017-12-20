@@ -26,7 +26,7 @@ footer {
 }
 #stats-div ul,li,h2,h3 {
     text-align: center;
-    margin-top: 15px;;
+    margin-bottom: 15px;;
 }
 #stats-img{
     margin: 0 auto;
@@ -36,6 +36,12 @@ footer {
     font-size: 10vh;
     min-height: 40px;
 }
-#stats-div li {
-    
+.AGI {
+    color: #68f442;
+}
+.INT {
+    color: #00f2ff
+}
+.STR {
+    color: #ff0000
 }
