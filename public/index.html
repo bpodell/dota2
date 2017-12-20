@@ -9,12 +9,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="shortcut icon" type="image/png" href="/dotadossier/public/img/favicon.ico" />
     <title>Dossier of the Ancients</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cinzel' rel='stylesheet">
     <link rel="stylesheet" href="styles/reset.css">
     <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/modules.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cinzel' rel='stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="styles/footer.css">
 
     <!-- Handlebars templates -->
@@ -35,20 +35,19 @@
     <script id="stats-template" type="text/x-handlebars-template">
       <div id="stats-div">
         <div id="hero-header">
-          <img src="http://cdn.dota2.com{{img}}" id="stats-img">
-          <h2 id="stats-h2">{{name}}</h2>
-          <h3>Primary Attribute: <span class="{{primary_attr}}">{{primary_attr}}</span></h3>
-          <h3>Roles: {{roles}}</h3>
+            <div>
+                <img src="http://cdn.dota2.com{{img}}" id="stats-img">
+                <h2 id="stats-h2">{{name}}</h2>
+                <h3>Primary Attribute: <span class="{{primary_attr}}">{{primary_attr}}</span></h3>
+                <h3>Roles: {{roles}}</h3>
+            </div>
+
           <ul id="basic-stats">
             <li>{{id}}</li>
             <li>{{hero_icon}}</li>
-            
-            
-            <!-- <li>Pro Pick Rate: {{pro_pick}}</li>
-            <li>Pro Win Rate: {{pro_win}}</li>
-            <li>Pro Ban Rate: {{pro_ban}}</li> -->
           </ul>
         </div>
+
         <ul id="detailed-stats">
           <li>Base HP: <span class="AGI">{{base_health}}</span></li>
           <li>Base Health Regen: <span class="AGI">{{base_health_regen}}</span></li>
@@ -109,53 +108,52 @@
       </video> -->
     </div>
     <main>
-        <section id="hero-view">
+        <section id="hero-view" class="container">
             <ul id="hero-view-list"></ul>
         </section>
 
-        <section id="stats-view"></section>
+        <section id="stats-view" class="container"></section>
     </main>   
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<footer class="footer-box">
-    <div class="left-foot">
-        <h3>DOTA
-            <span>DOSSIER</span>
-        </h3>
-        <p class="footer-links">
-            <a href="#">Home</a>
-            |
-            <a href="#">Heroes</a>
-            |
-            <a href="#">Pros</a>
-            |
-            <a href="#">About</a>
-        </p>
-        <p class="dota-dossier">DOTA Dossier © 2017</p>
+    <footer class="footer-box">
+        <div class="left-foot">
+            <h3>DOTA
+                <span>DOSSIER</span>
+            </h3>
+            <p class="footer-links">
+                <a href="#">Home</a>
+                |
+                <a href="#">Heroes</a>
+                |
+                <a href="#">Pros</a>
+                |
+                <a href="#">About</a>
+            </p>
+            <p class="dota-dossier">DOTA Dossier © 2017</p>
 
-        <div class="footer-icons">
-            <a href="http://store.steampowered.com/app/570/Dota_2/">
-                <i class="fa fa-steam"></i>
-            </a>
-            <a href="https://slack.com">
-                <i class="fa fa-slack"></i>
-            </a>
-            <a href="https://stackoverflow.com">
-                <i class="fa fa-stack-overflow"></i>
-            </a>
-            <a href="https://github.com/bpodell/dota2">
-                <i class="fa fa-github"></i>
-            </a>
+            <div class="footer-icons">
+                <a href="http://store.steampowered.com/app/570/Dota_2/">
+                    <i class="fa fa-steam"></i>
+                </a>
+                <a href="https://slack.com">
+                    <i class="fa fa-slack"></i>
+                </a>
+                <a href="https://stackoverflow.com">
+                    <i class="fa fa-stack-overflow"></i>
+                </a>
+                <a href="https://github.com/bpodell/dota2">
+                    <i class="fa fa-github"></i>
+                </a>
+            </div>
         </div>
-    </div>
-    <div class="right-foot">
-        <p>Contact Us</p>
-        <form action="mailto:admin@dotadossier.com" method="post">
-            <input type="text" name="email" placeholder="Email">
-            <textarea name="message" placeholder="Message"></textarea>
-            <button>Send</button>
-        </form>
-    </div>
-</footer>
+        <div class="right-foot">
+            <p>Contact Us</p>
+            <form action="mailto:admin@dotadossier.com" method="post">
+                <input type="text" name="email" placeholder="Email">
+                <textarea name="message" placeholder="Message"></textarea>
+                <button>Send</button>
+            </form>
+        </div>
+    </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
     <script src="/scripts/hero.js"></script>
