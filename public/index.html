@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
-
-
     <meta name="description" content="Dota2 Statistics And Information">
     <meta name="keywords" content="HTML,CSS,XML,JavaScript,jQuery,Handlebars.js">
     <meta name="author" content="Kevin Miller, Mitchell Massie, Bill Odell, Jamie Williams">
@@ -19,43 +17,95 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="styles/footer.css">
 
+    <!-- Handlebars templates -->
+    <!-------------------------->
+
+    <!-- hero template -->
     <script id="hero-template" type="text/x-handlebars-template">
-        <li data-hero-id="{{hero_id}}">
-                <div>
-                    <img src="http://cdn.dota2.com{{image_url}}">
-                    <h2>{{name}}</h2>
-                </div>
-        </li>
-    </script>
-  <script id="stats-template" type="text/x-handlebars-template">
+      <li data-hero-id="{{hero_id}}" data-hero-index="{{arrayIndex}}">
         <div>
-            <a href="/{{}}">
-                <p>{{id}}</p>
-                <p>{{hero_icon}}</p>
-                <p>{{id}}</p>
-                <p>{{pro_pick}}</p>
-                <p>{{pro_wins}}</p>
-                <p>{{pro_ban}}</p>
+          <h2>{{name}}</h2>
+          <img src="http://cdn.dota2.com{{img}}">
         </div>
+      </li>
     </script>
+    <!-------------------------->
 
-</head>
-<body>
+    <!--hero template ---------->
+    <script id="stats-template" type="text/x-handlebars-template">
+      <div id="stats-div">
+        
+        <img src="http://cdn.dota2.com{{img}}" id="stats-img">
+        <h2 id="stats-h2">{{name}}</h2>
+        <h3>Primary Attribute: <span class="{{primary_attr}}">{{primary_attr}}</span></h3>
+        <h3>Roles: {{roles}}</h3>
+        <ul id="basic-stats">
+          <li>{{id}}</li>
+          <li>{{hero_icon}}</li>
+          
+          
+          <!-- <li>Pro Pick Rate: {{pro_pick}}</li>
+          <li>Pro Win Rate: {{pro_win}}</li>
+          <li>Pro Ban Rate: {{pro_ban}}</li> -->
+        </ul>
+        <ul id="detailed-stats">
+          <li>Base HP: <span class="AGI">{{base_health}}</span></li>
+          <li>Base Health Regen: <span class="AGI">{{base_health_regen}}</span></li>
+          <li>Base Mana Regen: <span class="INT">{{base_mana_regen}}</span></li>
+          <li>Base Armor: {{base_armor}}</li>
+          <li>Base Magic Resist: {{base_mr}}</li>
+          <li>Base Attack Min: {{base_attack_min}}</li>
+          <li>Base Attack Max: {{base_attack_max}}</li>
+          <li>Base Strength: <span class="STR">{{base_str}}</span></li>
+          <li>Base Strength Gain: <span class="STR">{{str_gain}}</span></li>
+          <li>Base Agility: <span class="AGI">{{base_agi}}</span></li>
+          <li>Base Agility Gain: <span class="AGI">{{agi_gain}}</span></li>
+          <li>Base Intelligence: <span class="INT">{{base_int}}</span></li>
+          <li>Base Intelligence Gain: <span class="INT">{{int_gain}}</span></li>
+          <li>Attack Type: {{attack_type}}</li>
+          <li>Attack Range: {{attack_range}}</li>
+
+          {{#if projectile_speed}}
+              <li>Projectile Speed: {{projectile_speed}}</li>
+          {{else}}
+              <li>Projectile Speed: N/A</li>
+          {{/if}}
+
+          <li>Attack Rate: {{attack_rate}}</li>
+          <li>Move Speed: {{move_speed}}</li>
+        </ul>
+        <h3>Averages</h3>
+        <ul id="average-stats">
+          <li>Gold per Minute: {{gold_per_min}}</li>
+          <li>XP per Minute: {{xp_per_min}}</li>
+          <li>Kills per Minute: {{kills_per_min}}</li>
+          <li>Last Hits per Minute: {{last_hits_per_min}}</li>
+          <li>Hero Damage per Minute {{hero_damage_per_min}}</li>
+          <li>Hero Healing per Minute: <span class="grn">{{hero_healing_per_min}}</span></li>
+          <li>Tower Damage: {{tower_damage}}</li>
+        </ul>
+      </div>
+  </script>
+  <!------------------------------>
+  <!-- End HAndlebars templates -->
+  </head>
+  <body>
     <header>
-        <nav class="menu" id="top-nav">
-            <a class="active" href="#">Home</a>
-            <a href="#">Search</a>
-            <a href="#">Stats</a>
-            <a href="#">About</a>
-        </nav>
+      <nav id="top-nav">
+          <img id="icon" src="img/dota2icon.png">
+          <ul id="nav-menu">
+              <li id="home-nav-item">Home</li>
+              <li id="heroes-nav-item">Heroes</li>
+              <li id="pros-nav-item">Pros</li>
+              <li id="about-nav-item">About</li>
+          </ul>
+      </nav>
     </header>
-
     <div class="video-overlay"></div>
-
     <div class="fullscreen-bg">
-        <!-- <video loop muted poster="img/ti7-video-frame.png" class="fullscreen-bg__video">
-            <source src="video/ti7-opening-reel.mp4" type="video/mp4">
-        </video> -->
+      <!-- <video loop muted poster="img/ti7-video-frame.png" class="fullscreen-bg__video">
+        <source src="video/ti7-opening-reel.mp4" type="video/mp4">
+      </video> -->
     </div>
     <main>
         <section id="hero-view">
@@ -108,6 +158,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
     <script src="/scripts/hero.js"></script>
+    <script src="/scripts/stats.js"></script>
     <script src="/scripts/heroView.js"></script>
-</body>
+    <script src="/scripts/view.js"></script>
+  </body>
 </html>
