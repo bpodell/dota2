@@ -17,3 +17,13 @@ footer {
   margin-top: 10vh;
   background-color: #000d19;
 }
+
+#stats-template{
+    text-align: center;
+}
+#stats-div{
+    margin: auto;
+}
+li,h2 {
+    text-align: center;
+}

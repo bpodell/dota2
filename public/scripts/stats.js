@@ -31,6 +31,8 @@ var app = app || {};
     heroStats.last_hits_per_min = (Math.round(benchMarks.result.last_hits_per_min[4].value * 100)/100).toFixed(2);
     heroStats.tower_damage = benchMarks.result.tower_damage[4].value;
     heroStats.xp_per_min = benchMarks.result.xp_per_min[4].value;
+    heroStats.primary_attr = heroStats.primary_attr.toUpperCase();
+    heroStats.roles = heroStats.roles.replace(/["\{\}]/g, '').replace(/,/g, ', ');
   }
 
   stats.toHtml = function() {
