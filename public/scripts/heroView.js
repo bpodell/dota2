@@ -41,6 +41,8 @@ var app = app || {};
     app.Hero.all = heroData.map(hero => new app.Hero(hero))
     appendHeroView();
   }
+
+
   module.heroView = heroView
 })(app);
 
@@ -67,3 +69,4 @@ $(function() {
 //       .catch(console.error)
 //   }
 // }
+
