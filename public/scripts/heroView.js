@@ -6,13 +6,20 @@ var app = app || {};
 
     app.Hero.all.forEach((hero, i) => {
       hero.arrayIndex = i
-      $('#hero-view').append(hero.toHtml())
+      $('#hero-view-list').append(hero.toHtml())
     })
 
 
   }
 
+  heroView.setURl = (view, url) => {
+    history.pushState( {
+      view: view,
+    }, null, url);
+  }
+
   heroView.initIndexPage = () => {
+    heroView.setURl('home', '/')
     let heroData;
     if (localStorage.heroes) {
       console.log('inside if')
@@ -30,6 +37,7 @@ var app = app || {};
   }
 
   function setAll (heroData) {
+    heroData.sort((a,b) => a.name < b.name ? -1 : 1 );
     app.Hero.all = heroData.map(hero => new app.Hero(hero))
     appendHeroView();
   }
@@ -61,4 +69,3 @@ $(function() {
 //       .catch(console.error)
 //   }
 // }
-
