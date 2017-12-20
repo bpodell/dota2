@@ -1,23 +1,5 @@
-@media only screen and (min-width: 960px)  {
+@media only screen and (min-width: 780px)  {
 
-    li img {
-     border: solid 5px #9B7BF0;
-    }
-    li h2  {
-       text-align: center; 
-    }
-    #hero-view {
-        float: left;
-        position: relative;
-        left: 46px;
-        top: 90px;
+    
 
-    }
-     section li {
-         float: left;
-
-    }
-    ul {
-        list-style: none;
-    }
 }
