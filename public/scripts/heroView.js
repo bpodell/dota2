@@ -14,6 +14,8 @@ var app = app || {};
       
     //   
   }
+
+
   module.heroView = heroView
 })(app);
 
@@ -25,3 +27,6 @@ $(function() {
       .then(console.log)
   } )
 })
+
+
+$('#hero-list-item').addClass('pull-right')

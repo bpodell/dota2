@@ -18,8 +18,8 @@
     
 
     <script id="hero-template" type="text/x-handlebars-template">
-        <li data-hero-id="{{hero_id}}">
-                <div>
+        <li id="hero-list-item" data-hero-id="{{hero_id}}">
+                <div class="hero-portrait">
                     <h2>{{name}}</h2>
                     <img src="http://cdn.dota2.com{{image_url}}">
                 </div>
@@ -111,14 +111,14 @@
         </video> -->
     </div>
     <main>
-        <section id="hero-view">
+        <section id="hero-view" class="container">
             <ul id="hero-view-list"></ul>
         </section>
 
-        <section id="stats-view"></section>
+        <section id="stats-view" class="container"></section>
     </main>   
     <footer class="page-footer">
-        <div class="container">
+        <div>
             <div class="row">
                 <div class="col l6 s12">
                     <h5 class="footer-title">Placeholder</h5>
