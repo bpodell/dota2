@@ -3,10 +3,12 @@ var app = app || {};
 (function(module) {
   let heroView = {};
   function appendHeroView() {
+
     app.Hero.all.forEach((hero, i) => {
       hero.arrayIndex = i
       $('#hero-view').append(hero.toHtml())
     })
+
 
   }
 

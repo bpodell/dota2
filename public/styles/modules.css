@@ -1,4 +1,22 @@
 
+nav a {
+    float: left;
+    list-style: none;
+    margin-right: 1em;
+}
+
+nav a {
+    color: #A376F7;
+    text-decoration: none;
+    float: left;
+    font-size: 25px;
+    padding: 12px;
+}
+
+nav a:hover {
+    color: #3681EA;
+}
+
 
   
 
