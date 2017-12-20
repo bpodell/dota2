@@ -6,7 +6,7 @@ var app = app || {};
 
     app.Hero.all.forEach((hero, i) => {
       hero.arrayIndex = i
-      $('#hero-view').append(hero.toHtml())
+      $('#hero-view-list').append(hero.toHtml())
     })
 
 
@@ -69,4 +69,3 @@ $(function() {
 //       .catch(console.error)
 //   }
 // }
-
