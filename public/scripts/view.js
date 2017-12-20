@@ -8,11 +8,10 @@
 // downloadingVideo.src = "video/ti7-opening-reel";
 
 $('#icon').on('click', function () {
-  $('#nav-menu').toggle();
+  //$('#nav-menu').toggle();
+  $('#nav-menu').toggleClass('is-visivble');
 })
 
 // $(''). function() {
 
 // }
-
-

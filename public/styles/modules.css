@@ -26,8 +26,12 @@ nav img {
   text-shadow: 0px -2px 0px rgba(0, 0, 0, 1), 0 0 5px rgba(255, 255, 255, 0.8), 0 -4px 15px rgba(255, 255, 255, 0.5);
 }
 
-#icon:click + #nav-menu {
+/* #icon:click + #nav-menu {
     display: block;
+} */
+
+#nav-menu.is-visivble {
+  display: block;
 }
 
 #hero-view-list {
