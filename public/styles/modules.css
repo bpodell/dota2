@@ -75,5 +75,8 @@ nav img {
   #nav-menu li:nth-of-type(odd) {
     background-color: inherit;
   }
-
+  #stats-div ul {
+    columns: 2;
+  }
+ 
 }
