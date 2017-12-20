@@ -8,11 +8,11 @@
 // downloadingVideo.src = "video/ti7-opening-reel";
 
 $('#icon').on('click', function () {
-  $('#nav-menu').toggle();
+  $('#nav-menu').toggleClass('is-visible');
 })
 
-// $(''). function() {
-
-// }
+$('#home-nav-item').on('click', function() {
+  $('.fullscreen-bg').css('background', `url(../img/allHeroesEdited.jpg) center center / cover no-repeat`);
+})
 
 

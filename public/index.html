@@ -31,20 +31,21 @@
     <!--hero template ---------->
     <script id="stats-template" type="text/x-handlebars-template">
       <div id="stats-div">
-        
-        <img src="http://cdn.dota2.com{{img}}" id="stats-img">
-        <h2 id="stats-h2">{{name}}</h2>
-        <h3>Primary Attribute: <span class="{{primary_attr}}">{{primary_attr}}</span></h3>
-        <h3>Roles: {{roles}}</h3>
-        <ul id="basic-stats">
-          <li>{{id}}</li>
-          <li>{{hero_icon}}</li>
-          
-          
-          <!-- <li>Pro Pick Rate: {{pro_pick}}</li>
-          <li>Pro Win Rate: {{pro_win}}</li>
-          <li>Pro Ban Rate: {{pro_ban}}</li> -->
-        </ul>
+        <div id="hero-header">
+          <img src="http://cdn.dota2.com{{img}}" id="stats-img">
+          <h2 id="stats-h2">{{name}}</h2>
+          <h3>Primary Attribute: <span class="{{primary_attr}}">{{primary_attr}}</span></h3>
+          <h3>Roles: {{roles}}</h3>
+          <ul id="basic-stats">
+            <li>{{id}}</li>
+            <li>{{hero_icon}}</li>
+            
+            
+            <!-- <li>Pro Pick Rate: {{pro_pick}}</li>
+            <li>Pro Win Rate: {{pro_win}}</li>
+            <li>Pro Ban Rate: {{pro_ban}}</li> -->
+          </ul>
+        </div>
         <ul id="detailed-stats">
           <li>Base HP: <span class="AGI">{{base_health}}</span></li>
           <li>Base Health Regen: <span class="AGI">{{base_health_regen}}</span></li>

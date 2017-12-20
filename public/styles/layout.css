@@ -5,7 +5,6 @@ header {
     width: 100%;
 }
 
-
 main {
   width: 80vw;
   margin: 0 auto;
@@ -22,18 +21,19 @@ footer {
     text-align: center;
 }
 #stats-div{
-    margin: auto;
+    margin-top: 140px;
 }
 #stats-div ul,li,h2,h3 {
     text-align: center;
-    margin-bottom: 15px;;
+    margin-bottom: 15px;
+    /* margin-top: 120px; */
 }
 #stats-img{
     margin: 0 auto;
     display: block;
 }
 #stats-h2{
-    font-size: 10vh;
+    font-size: 6vh;
     min-height: 40px;
 }
 .AGI {
