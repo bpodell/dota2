@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="styles/modules.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cinzel' rel='stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles/footer.css">
 
     <script id="hero-template" type="text/x-handlebars-template">
         <li data-hero-id="{{hero_id}}">
@@ -63,41 +64,47 @@
 
         <section id="stats-view"></section>
     </main>   
-    <footer class="page-footer">
-        <div class="container">
-            <div class="row">
-                <div class="col l6 s12">
-                    <h5 class="footer-title">Placeholder</h5>
-                    <p class="footer-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur pariatur quisquam deleniti itaque inventore.
-                        Fugit ipsum sit maxime accusantium dolorum laborum quo doloribus aliquid voluptatibus, ipsa quod
-                        nihil autem iusto!</p>
-                </div>
-                <div class="col l4 offset-l2 s12">
-                    <h5 class="links-title">Links</h5>
-                    <ul>
-                        <li>
-                            <a class="above-link" href="#">dota2</a>
-                        </li>
-                        <li>
-                            <a class="above-link" href="#">facebook</a>
-                        </li>
-                        <li>
-                            <a class="above-link" href="#">twitter</a>
-                        </li>
-                        <li>
-                            <a class="above-link" href="#">reddit</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<footer class="footer-box">
+    <div class="left-foot">
+        <h3>DOTA
+            <span>DOSSIER</span>
+        </h3>
+        <p class="footer-links">
+            <a href="#">Home</a>
+            |
+            <a href="#">Heroes</a>
+            |
+            <a href="#">Pros</a>
+            |
+            <a href="#">About</a>
+        </p>
+        <p class="dota-dossier">DOTA Dossier © 2017</p>
+
+        <div class="footer-icons">
+            <a href="http://store.steampowered.com/app/570/Dota_2/">
+                <i class="fa fa-steam"></i>
+            </a>
+            <a href="https://slack.com">
+                <i class="fa fa-slack"></i>
+            </a>
+            <a href="https://stackoverflow.com">
+                <i class="fa fa-stack-overflow"></i>
+            </a>
+            <a href="https://github.com/bpodell/dota2">
+                <i class="fa fa-github"></i>
+            </a>
         </div>
-        <div class="footer-copyright">
-            <div class="container">
-                Copyright © 2017 Dossier of the Ancients
-                <a class="below-link" href="#">github</a>
-            </div>
-        </div>
-    </footer>
+    </div>
+    <div class="right-foot">
+        <p>Contact Us</p>
+        <form action="mailto:admin@dotadossier.com" method="post">
+            <input type="text" name="email" placeholder="Email">
+            <textarea name="message" placeholder="Message"></textarea>
+            <button>Send</button>
+        </form>
+    </div>
+</footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
     <script src="/scripts/hero.js"></script>
