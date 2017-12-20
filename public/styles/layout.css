@@ -24,6 +24,18 @@ footer {
 #stats-div{
     margin: auto;
 }
-li,h2 {
+#stats-div ul,li,h2,h3 {
     text-align: center;
+    margin-top: 15px;;
+}
+#stats-img{
+    margin: 0 auto;
+    display: block;
+}
+#stats-h2{
+    font-size: 10vh;
+    min-height: 40px;
+}
+#stats-div li {
+    
 }
