@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+
+    <meta name="description" content="Dota2 Statistics And Information">
+    <meta name="keywords" content="HTML,CSS,XML,JavaScript,jQuery,Handlebars.js">
+    <meta name="author" content="Kevin Miller, Mitchell Massie, Bill Odell, Jamie Williams">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" type="image/png" href="/dotadossier/public/img/favicon.ico" />
+    <title>Dossier of the Ancients</title>
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/modules.css">
+
+
+    <script id="hero-template" type="text/x-handlebars-template">
+        <li data-hero-id="{{hero_id}}" data-hero-index="{{arrayIndex}}">
+            <div>
+                <h2>{{name}}</h2>
+                <img src="http://cdn.dota2.com{{img}}">
+            </div>
+        </li>
+    </script>
+
+    <script id="stats-template" type="text/x-handlebars-template">
+            <div>
+                <div>
+                    <h2>{{name}}</h2>
+                    <img src="http://cdn.dota2.com{{img}}">
+                </div>
+
+                <div id="basic-stats">
+                    <p>{{id}}</p>
+                    <p>{{hero_icon}}</p>
+                    <p>Roles: {{roles}}</p>
+                    <p>Primary Attribute: {{primary_attr}}</p>
+                    <p>Pro Pick Rate: {{pro_pick}}</p>
+                    <p>Pro Win Rate: {{pro_win}}</p>
+                    <p>Pro Ban Rate: {{pro_ban}}</p>
+                </div>
+
+
+                <div id="detailed-stats">
+                    <p>Base HP: {{base_health}}</p>
+                    <p>Base Health Regen: {{base_health_regen}}</p>
+                    <p>Base Mana Regen: {{base_mana_regen}}</p>
+                    <p>Base Armor: {{base_armor}}</p>
+                    <p>Base Magic Resist: {{base_mr}}</p>
+                    <p>Base Attack Min: {{base_attack_min}}</p>
+                    <p>Base Attack Max: {{base_attack_max}}</p>
+                    <p>Base Strength: {{base_str}}</p>
+                    <p>Base Strength Gain: {{str_gain}}</p>
+                    <p>Base Agility: {{base_agi}}</p>
+                    <p>Base Agility Gain: {{agi_gain}}</p>
+                    <p>Base Intelligence: {{base_int}}</p>
+                    <p>Base Intelligence Gain: {{int_gain}}</p>
+                    <p>Attack Type: {{attack_type}}</p>
+                    <p>Attack Range: {{attack_range}}</p>
+
+                    {{#if projectile_speed}}
+                        <p>Projectile Speed: {{projectile_speed}}</p>
+                    {{else}}
+                        <p>Projectile Speed: N/A</p>
+                    {{/if}}
+
+                    <p>Attack Rate: {{attack_rate}}</p>
+                    <p>Move Speed: {{move_speed}}</p>
+                </div>
+
+                <div id="average-stats">Averages
+                    <p>Gold per Minute: {{gold_per_min}}</p>
+                    <p>XP per Minute: {{xp_per_min}}</p>
+                    <p>Kills per Minute: {{kills_per_min}}</p>
+                    <p>Last Hits per Minute: {{last_hits_per_min}}</p>
+                    <p>Hero Damage per Minute {{hero_damage_per_min}}</p>
+                    <p>Hero Healing per Minute: {{hero_healing_per_min}}</p>
+                    <p>Tower Damage: {{tower_damage}}</p>
+                </div>
+            </div>
+            <div>
+            </div>
+        </script>
+
+</head>
+<body>
+    <header>
+        <nav id="top-nav">
+            <section id="icon"><img src="img/dota2icon.png"></section>
+            <div id="nav-menu">
+                <section class="nav-item-contrast"><a class="active" href="#">Home</a></section>
+                <section class="nav-item"><a href="#">Heroes</a></section>
+                <section class="nav-item-contrast"><a href="#">Pros</a></section>
+                <section class="nav-item"><a href="#">About</a></section>
+            </div>
+        </nav>
+    </header>
+
+    <div class="video-overlay"></div>
+
+    <div class="fullscreen-bg">
+        <!-- <video loop muted poster="img/ti7-video-frame.png" class="fullscreen-bg__video">
+            <source src="video/ti7-opening-reel.mp4" type="video/mp4">
+        </video> -->
+    </div>
+    <main>
+        <section id="hero-view">
+            <ul id="hero-view-list"></ul>
+        </section>
+
+        <section id="stats-view"></section>
+    </main>
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="footer-title">Placeholder</h5>
+                    <p class="footer-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur pariatur quisquam deleniti itaque inventore.
+                        Fugit ipsum sit maxime accusantium dolorum laborum quo doloribus aliquid voluptatibus, ipsa quod
+                        nihil autem iusto!</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="links-title">Links</h5>
+                    <ul>
+                        <li>
+                            <a class="above-link" href="#">dota2</a>
+                        </li>
+                        <li>
+                            <a class="above-link" href="#">facebook</a>
+                        </li>
+                        <li>
+                            <a class="above-link" href="#">twitter</a>
+                        </li>
+                        <li>
+                            <a class="above-link" href="#">reddit</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                Copyright © 2017 Dossier of the Ancients
+                <a class="below-link" href="#">github</a>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+    <script src="/scripts/hero.js"></script>
+    <script src="/scripts/stats.js"></script>
+    <script src="/scripts/heroView.js"></script>
+    <script src="/scripts/view.js"></script>
+</body>
+</html>
