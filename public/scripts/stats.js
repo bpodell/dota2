@@ -20,11 +20,11 @@ var app = app || {};
 
   stats.parseBenchmarks = (benchMarks) => {
     console.log('benchMarks', benchMarks);
-    heroStats.gold = benchMarks.result.gold_per_min[4].value;
-    heroStats.hero_damage_per_min = benchMarks.result.hero_damage_per_min[4].value;
-    heroStats.hero_healing_per_min = benchMarks.result.hero_healing_per_min[4].value || 0;
-    heroStats.kills_per_min = benchMarks.result.kills_per_min[4].value;
-    heroStats.last_hits_per_min = benchMarks.result.last_hits_per_min[4].value;
+    heroStats.gold_per_min = benchMarks.result.gold_per_min[4].value;
+    heroStats.hero_damage_per_min = (Math.round(benchMarks.result.hero_damage_per_min[4].value* 100)/100).toFixed(2);
+    heroStats.hero_healing_per_min = (Math.round(benchMarks.result.hero_healing_per_min[4].value* 100)/100).toFixed(2) || 0;
+    heroStats.kills_per_min = (Math.round(benchMarks.result.kills_per_min[4].value * 100)/100).toFixed(2);
+    heroStats.last_hits_per_min = (Math.round(benchMarks.result.last_hits_per_min[4].value * 100)/100).toFixed(2);
     heroStats.tower_damage = benchMarks.result.tower_damage[4].value;
     heroStats.xp_per_min = benchMarks.result.xp_per_min[4].value;
   }
