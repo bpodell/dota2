@@ -75,9 +75,9 @@ function loadHeroes() {
             let dbTag = response.headers.etag
             response.body.forEach(ele => {
               client.query(
-                `INSERT INTO heroes(hero_id, name, img, primary_attr, roles, move_speed, turn_rate, base_health, base_health_regen, base_mana, base_mana_regen, base_armor, base_mr, base_attack_min, base_attack_max, base_str, base_agi, base_int, str_gain, agi_gain, int_gain, attack_range, projectile_speed, attack_rate, pro_win, pro_pick, pro_ban)
-            VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24, $25, $26, $27) ON CONFLICT DO NOTHING;`,
-                [ele.id, ele.localized_name, ele.img, ele.primary_attr, ele.roles , ele.move_speed, ele.turn_rate, ele.base_health, ele.base_health_regen, ele.base_mana, ele.base_mana_regen, ele.base_armor, ele.base_mr, ele.base_attack_min, ele.base_attack_max, ele.base_str, ele.base_agi, ele.base_int, ele.str_gain, ele.agi_gain, ele.int_gain, ele.attack_range, ele.projectile_speed, ele.attack_rate, ele.pro_win, ele.pro_pick, ele.pro_ban]
+                `INSERT INTO heroes(hero_id, name, img, primary_attr, roles, move_speed, turn_rate, base_health, base_health_regen, base_mana, base_mana_regen, base_armor, base_mr, base_attack_min, base_attack_max, base_str, base_agi, base_int, str_gain, agi_gain, int_gain, attack_range, projectile_speed, attack_rate, pro_win, pro_pick, pro_ban, attack_type)
+            VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24, $25, $26, $27, $28) ON CONFLICT DO NOTHING;`,
+                [ele.id, ele.localized_name, ele.img, ele.primary_attr, ele.roles , ele.move_speed, ele.turn_rate, ele.base_health, ele.base_health_regen, ele.base_mana, ele.base_mana_regen, ele.base_armor, ele.base_mr, ele.base_attack_min, ele.base_attack_max, ele.base_str, ele.base_agi, ele.base_int, ele.str_gain, ele.agi_gain, ele.int_gain, ele.attack_range, ele.projectile_speed, ele.attack_rate, ele.pro_win, ele.pro_pick, ele.pro_ban, ele.attack_type]
               )
                 .then(
                   client.query(
@@ -127,7 +127,8 @@ function createDatabase(){
       attack_rate VARCHAR(10),
       pro_win VARCHAR(10),
       pro_pick VARCHAR(10),
-      pro_ban VARCHAR(10)
+      pro_ban VARCHAR(10),
+      attack_type VARCHAR(50)
     );`)
     .then(client.query(`CREATE TABLE IF NOT EXISTS
     etag (
