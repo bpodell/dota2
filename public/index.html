@@ -15,14 +15,14 @@
     <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/modules.css">
-    
+
 
     <script id="hero-template" type="text/x-handlebars-template">
-        <li id="hero-list-item" data-hero-id="{{hero_id}}">
-                <div class="hero-portrait">
-                    <h2>{{name}}</h2>
-                    <img src="http://cdn.dota2.com{{image_url}}">
-                </div>
+        <li data-hero-id="{{hero_id}}" data-hero-index="{{arrayIndex}}">
+            <div>
+                <h2>{{name}}</h2>
+                <img src="http://cdn.dota2.com{{img}}">
+            </div>
         </li>
     </script>
 
@@ -30,7 +30,7 @@
             <div>
                 <div>
                     <h2>{{name}}</h2>
-                    <img src="http://cdn.dota2.com{{image_url}}">
+                    <img src="http://cdn.dota2.com{{img}}">
                 </div>
 
                 <div id="basic-stats">
@@ -39,13 +39,13 @@
                     <p>Roles: {{roles}}</p>
                     <p>Primary Attribute: {{primary_attr}}</p>
                     <p>Pro Pick Rate: {{pro_pick}}</p>
-                    <p>Pro Win Rate: {{pro_wins}}</p>
+                    <p>Pro Win Rate: {{pro_win}}</p>
                     <p>Pro Ban Rate: {{pro_ban}}</p>
                 </div>
 
 
                 <div id="detailed-stats">
-                    <p>Base HP: {{base_hp}}</p>
+                    <p>Base HP: {{base_health}}</p>
                     <p>Base Health Regen: {{base_health_regen}}</p>
                     <p>Base Mana Regen: {{base_mana_regen}}</p>
                     <p>Base Armor: {{base_armor}}</p>
@@ -82,10 +82,6 @@
                 </div>
             </div>
             <div>
-                <a href="/{{}}">
-                    <
-                    
-                </a>
             </div>
         </script>
 
@@ -114,6 +110,7 @@
         <section id="hero-view" class="container">
             <ul id="hero-view-list"></ul>
         </section>
+
 
         <section id="stats-view" class="container"></section>
     </main>   
@@ -155,6 +152,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
     <script src="/scripts/hero.js"></script>
+    <script src="/scripts/stats.js"></script>
     <script src="/scripts/heroView.js"></script>
     <script src="/scripts/view.js"></script>
 </body>
