@@ -32,11 +32,12 @@ var app = app || {};
   stats.toHtml = function() {
     var template = Handlebars.compile($('#stats-template').text());
     $('#stats-view').append(template(heroStats));
-    let x = heroStats.name.split(' ').join('').toLowerCase();
+    let x = heroStats.name.split(' ').join('').toLowerCase().replace(/'/g, '');
     console.log(`/img/wallpaper/${x}.jpg`)
     let statURL = `/heroes-stat/${heroStats.name.split(' ').join('-')}`;
     app.heroView.setURl('stats-view', statURL);
-    $('body').css('background-image', `/img/wallpaper/${x}.jpg`)
+    $('.fullscreen-bg').css('background', `url(../img/wallpaper/${x}.jpg) center center / cover no-repeat`);
+    console.log($('.fullscreen-bg').css('background'));
   }
 
 
