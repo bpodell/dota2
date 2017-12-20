@@ -37,7 +37,9 @@ var app = app || {};
   }
 
   function setAll (heroData) {
+    console.log(heroData)
     heroData.sort((a,b) => a.name < b.name ? -1 : 1 );
+    console.log(heroData)
     app.Hero.all = heroData.map(hero => new app.Hero(hero))
     appendHeroView();
   }
@@ -48,7 +50,7 @@ var app = app || {};
 
 $(function() {
   app.heroView.initIndexPage()
-  $('#hero-view').on('click', 'li', function() {
+  $('#hero-view-list').on('click', 'li', function() {
     app.stats.initStatsPage(this);
   } )
 })

@@ -10,8 +10,12 @@ var app = app || {};
 
   stats.initStatsPage = (heroItem) => {
     let idx = $(heroItem).attr('data-hero-index')
-    console.log('idx', idx)
-    console.log(app.Hero.all[idx])
+    $('.container').hide()
+    $('#stats-view').show()
+    $('#home-nav-item').on('click', () => {
+      $('#stats-view').empty()
+      $('.container').show()
+    })
     heroStats = app.Hero.all[idx];
     $.get(`/stats/${$(heroItem).attr('data-hero-id')}`)
       .then(stats.parseBenchmarks)
