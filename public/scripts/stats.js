@@ -34,8 +34,12 @@ var app = app || {};
     $('#stats-view').append(template(heroStats));
     let x = heroStats.name.split(' ').join('').toLowerCase();
     console.log(`/img/wallpaper/${x}.jpg`)
+    let statURL = `/heroes-stat/${heroStats.name.split(' ').join('-')}`;
+    app.heroView.setURl('stats-view', statURL);
     $('body').css('background-image', `/img/wallpaper/${x}.jpg`)
   }
+
+
 
   module.stats = stats;
 
