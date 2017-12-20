@@ -32,6 +32,9 @@ var app = app || {};
   stats.toHtml = function() {
     var template = Handlebars.compile($('#stats-template').text());
     $('#stats-view').append(template(heroStats));
+    let x = heroStats.name.split(' ').join('').toLowerCase();
+    console.log(`/img/wallpaper/${x}.jpg`)
+    $('body').css('background-image', `/img/wallpaper/${x}.jpg`)
   }
 
   module.stats = stats;
