@@ -48,6 +48,9 @@ nav img {
   display: inline-block;
 
 }
+#hero-view-list li:hover {
+  border-style: outset;
+}
 
 #hero-view-list img {
   max-width: 100vw;
