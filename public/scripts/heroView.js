@@ -52,6 +52,7 @@ $(function() {
   app.heroView.initIndexPage()
   $('#hero-view-list').on('click', 'li', function() {
     app.stats.initStatsPage(this);
+    $('html').animate({ scrollTop: 0 }, 600);
   } )
 })
 
