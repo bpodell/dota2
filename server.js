@@ -28,6 +28,13 @@ app.get('/heroes', (req, res) => {
     .catch(console.error)
 })
 
+
+app.get('/pro', (req, res) => {
+  superagent.get('https://api.opendota.com/api/teams?limit=16')
+    .then(response => res.send(response.body))
+    .catch(console.error)
+})
+
 app.get('/etags', checkHeaders, (req, res) => {
   client.query(`SELECT etag_id FROM etag`)
     .then(result => {
@@ -35,6 +42,7 @@ app.get('/etags', checkHeaders, (req, res) => {
       return result.rows[0] ? result.rows[0].etag_id : '';
     }).then(etag => res.send(etag))
 });
+
 
 app.get('/stats/:id', (req, res) => {
   let url = `https://api.opendota.com/api/benchmarks?hero_id=${req.params.id}`;
