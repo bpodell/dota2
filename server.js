@@ -27,6 +27,16 @@ app.get('/heroes', (req, res) => {
     .then(results => res.send(results.rows))
     .catch(console.error)
 })
+
+app.get('/etags', checkHeaders, (req, res) => {
+  client.query(`SELECT etag_id FROM etag`)
+    .then(result => {
+      console.log('ETAG', result.rows[0].etag_id);
+      return result.rows[0] ? result.rows[0].etag_id : '';
+    }).then(etag => res.send(etag))
+});
+
+
 // app.get('/etag' (req, res) => {
 //   client.query(`SELECT etag_id FROM etag`)
 //   .then(results => res.send(results.rows[0].etag))
@@ -140,7 +150,7 @@ function createDatabase(){
 
 }
 
-function checkHeaders() {
+function checkHeaders(req, res, next) {
   let eTag;
   let dbTag;
   client.query(`SELECT etag_id FROM etag`)
@@ -155,5 +165,5 @@ function checkHeaders() {
         client.query('TRUNCATE TABLE heroes')
           .then(loadHeroes)
       }
-    })
+    }).then(()=> {if (next) next()})
 }

@@ -7,9 +7,10 @@
 // };
 // downloadingVideo.src = "video/ti7-opening-reel";
 
-$('#icon').on('click', function () {
+$('#icon, nav li').on('click', function () {
   //$('#nav-menu').toggle();
-  $('#nav-menu').toggleClass('is-visivble');
+
+  $('#nav-menu').toggleClass('is-visible');
 })
 
 // $(''). function() {
