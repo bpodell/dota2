@@ -1,10 +1,28 @@
 /* navigation menu styling */
+
 nav {
   text-align: center;
 }
 
 nav img {
-  width: 120px;
+  width: 100px;
+}
+
+header h3 {
+  color: #fff;
+  font: 36px Cinzel;
+  margin: 0 0 10px;
+  position: absolute;
+  margin-left: 31px;
+  margin-top: 29px; 
+}
+
+header h3 span {
+  color: #832522
+}
+
+#icon {
+  float: right;
 }
 
 #nav-menu {
@@ -19,10 +37,6 @@ nav img {
   background-color: #8d1c17;
 }
 
-/* #nav-menu li:nth-of-type(odd) {
-  background-color: #8d1c17;
-} */
-
 #nav-menu li:hover {
   color: #90a0c0;
   text-shadow: 0px -2px 0px rgba(0, 0, 0, 1), 0 0 5px rgba(255, 255, 255, 0.8), 0 -4px 15px rgba(255, 255, 255, 0.5);
@@ -32,7 +46,9 @@ nav img {
   display: block;
 }
 
+
 /* hero list view on mobile */
+
 #hero-view {
   margin-top: 140px;
 }
@@ -46,7 +62,6 @@ nav img {
   border: 4px solid #90a0c0;
   margin: .5vw;
   display: inline-block;
-
 }
 #hero-view-list li:hover {
   border-style: outset;
@@ -61,49 +76,77 @@ nav img {
   margin: .25em;
 }
 
-@media screen and (min-width: 780px) {
+/* Pro View */
 
+#pro-view {
+  margin-top: 160px;
+  list-style: none;
+  background-color: rgba(255, 255, 255, .1)
+}
+.team-logo {
+  height: 50px;
+  width: 100px;
+  background-color: black;
+  padding: 2px;
+  border-radius: 2px;
+}
+
+
+/* Desktop Styling */
+
+@media screen and (min-width: 780px) {
   body {
     margin-top: 280px;
   }
-
-  #nav-menu {
+  /* #nav-menu {
     display: block;
     position: absolute;
-    top: 20px;
-    left: 20px;
-  }
-
-  #nav-menu li {
+    margin-top: 1.5%;
+    margin-left: 21%;
+  } */
+  /* #nav-menu li {
     display: inline-block;
     background-color: inherit;
     color: white;
     margin: 10px;
-  }
-
+  } */
   #nav-menu li.is-hidden {
     display: none;
   }
-
   #nav-menu li:nth-of-type(odd) {
     background-color: inherit;
   }
 
-  #stats-div ul {
-    columns: 2;
-  }
-  
-  #icon {
-    float: right;
-  }
+
+  /* desktop styling for stats page */
 
   #hero-header {
     width: 100%;
   }
 
-  #hero-header div {
+  /* #hero-header div {
+    background-color: rgba(255, 255, 255, 0.05); */
+    
     /* left: -25%;
     position: relative; */
+  }
+
+  #stats-div ul {
+    columns: 2;
+    /* background-color: rgba(255, 255, 255, 0.05); */
+    font-size: 1.5em;
+  }
+
+  #stats-div h3 {
+    font-size: 1.5em;
+  }
+
+  /* #average-stats li:last-of-type {
+    
+  } */
+
+  #icon {
+    float: right;
   }
 
 }

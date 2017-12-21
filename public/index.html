@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8">
     <meta name="description" content="Dota2 Statistics And Information">
     <meta name="keywords" content="HTML,CSS,XML,JavaScript,jQuery,Handlebars.js">
@@ -22,89 +23,119 @@
 
     <!-- hero template -->
     <script id="hero-template" type="text/x-handlebars-template">
-      <li data-hero-id="{{hero_id}}" data-hero-index="{{arrayIndex}}">
-        <div>
-          <h2>{{name}}</h2>
-          <img src="http://cdn.dota2.com{{img}}">
-        </div>
-      </li>
+        <li data-hero-id="{{hero_id}}" data-hero-index="{{arrayIndex}}">
+            <div>
+                <h2>{{name}}</h2>
+                <img src="http://cdn.dota2.com{{img}}">
+            </div>
+        </li>
     </script>
     <!-------------------------->
 
     <!--hero template ---------->
     <script id="stats-template" type="text/x-handlebars-template">
-      <div id="stats-div">
-        <div id="hero-header">
-            <div>
-                <img src="http://cdn.dota2.com{{img}}" id="stats-img">
-                <h2 id="stats-h2">{{name}}</h2>
-                <h3>Primary Attribute: <span class="{{primary_attr}}">{{primary_attr}}</span></h3>
-                <h3>Roles: {{roles}}</h3>
+        <div id="stats-div">
+            <div id="hero-header">
+                <div>
+                    <img src="http://cdn.dota2.com{{img}}" id="stats-img">
+                    <h2 id="stats-h2">{{name}}</h2>
+                    <h3>Primary Attribute:
+                        <span class="{{primary_attr}}">{{primary_attr}}</span>
+                    </h3>
+                    <h3>Roles: {{roles}}</h3>
+                </div>
+
+                <ul id="basic-stats">
+                    <li>{{id}}</li>
+                    <li>{{hero_icon}}</li>
+                </ul>
             </div>
 
-          <ul id="basic-stats">
-            <li>{{id}}</li>
-            <li>{{hero_icon}}</li>
-          </ul>
+            <ul id="detailed-stats">
+                <li>Base HP:
+                    <span class="AGI">{{base_health}}</span>
+                </li>
+                <li>Base Health Regen:
+                    <span class="AGI">{{base_health_regen}}</span>
+                </li>
+                <li>Base Mana Regen:
+                    <span class="INT">{{base_mana_regen}}</span>
+                </li>
+                <li>Base Armor: {{base_armor}}</li>
+                <li>Base Magic Resist: {{base_mr}}</li>
+                <li>Base Attack Min: {{base_attack_min}}</li>
+                <li>Base Attack Max: {{base_attack_max}}</li>
+                <li>Base Strength:
+                    <span class="STR">{{base_str}}</span>
+                </li>
+                <li>Base Strength Gain:
+                    <span class="STR">{{str_gain}}</span>
+                </li>
+
+                <li>Base Agility:
+                    <span class="AGI">{{base_agi}}</span>
+                </li>
+                <li>Base Agility Gain:
+                    <span class="AGI">{{agi_gain}}</span>
+                </li>
+                <li>Base Intelligence:
+                    <span class="INT">{{base_int}}</span>
+                </li>
+                <li>Base Intelligence Gain:
+                    <span class="INT">{{int_gain}}</span>
+                </li>
+                <li>Attack Type: {{attack_type}}</li>
+                <li>Attack Range: {{attack_range}}</li>
+
+                {{#if projectile_speed}}
+                <li>Projectile Speed: {{projectile_speed}}</li>
+                {{else}}
+                <li>Projectile Speed: N/A</li>
+                {{/if}}
+
+                <li>Attack Rate: {{attack_rate}}</li>
+                <li>Move Speed: {{move_speed}}</li>
+            </ul>
+            <h3>Averages</h3>
+            <ul id="average-stats">
+                <li>Gold per Minute: {{gold_per_min}}</li>
+                <li>XP per Minute: {{xp_per_min}}</li>
+                <li>Kills per Minute: {{kills_per_min}}</li>
+                <li>Last Hits per Minute: {{last_hits_per_min}}</li>
+                <li>Hero Damage per Minute {{hero_damage_per_min}}</li>
+                <li>Hero Healing per Minute:
+                    <span class="grn">{{hero_healing_per_min}}</span>
+                </li>
+                <li>Tower Damage: {{tower_damage}}</li>
+                <li>&nbsp;</li>
+            </ul>
         </div>
-
-        <ul id="detailed-stats">
-          <li>Base HP: <span class="AGI">{{base_health}}</span></li>
-          <li>Base Health Regen: <span class="AGI">{{base_health_regen}}</span></li>
-          <li>Base Mana Regen: <span class="INT">{{base_mana_regen}}</span></li>
-          <li>Base Armor: {{base_armor}}</li>
-          <li>Base Magic Resist: {{base_mr}}</li>
-          <li>Base Attack Min: {{base_attack_min}}</li>
-          <li>Base Attack Max: {{base_attack_max}}</li>
-          <li>Base Strength: <span class="STR">{{base_str}}</span></li>
-          <li>Base Strength Gain: <span class="STR">{{str_gain}}</span></li>
-          <li>Base Agility: <span class="AGI">{{base_agi}}</span></li>
-          <li>Base Agility Gain: <span class="AGI">{{agi_gain}}</span></li>
-          <li>Base Intelligence: <span class="INT">{{base_int}}</span></li>
-          <li>Base Intelligence Gain: <span class="INT">{{int_gain}}</span></li>
-          <li>Attack Type: {{attack_type}}</li>
-          <li>Attack Range: {{attack_range}}</li>
-
-          {{#if projectile_speed}}
-              <li>Projectile Speed: {{projectile_speed}}</li>
-          {{else}}
-              <li>Projectile Speed: N/A</li>
-          {{/if}}
-
-          <li>Attack Rate: {{attack_rate}}</li>
-          <li>Move Speed: {{move_speed}}</li>
-        </ul>
-        <h3>Averages</h3>
-        <ul id="average-stats">
-          <li>Gold per Minute: {{gold_per_min}}</li>
-          <li>XP per Minute: {{xp_per_min}}</li>
-          <li>Kills per Minute: {{kills_per_min}}</li>
-          <li>Last Hits per Minute: {{last_hits_per_min}}</li>
-          <li>Hero Damage per Minute {{hero_damage_per_min}}</li>
-          <li>Hero Healing per Minute: <span class="grn">{{hero_healing_per_min}}</span></li>
-          <li>Tower Damage: {{tower_damage}}</li>
-        </ul>
-      </div>
-  </script>
+    </script>
   
-  <!------------------------------>
-  <!-- End HAndlebars templates -->
-  </head>
-  <body>
+    <script id="pro-template" type="text/x-handlebars-template">
+      <tr><td><img class="team-logo" src="{{logo_url}}"></td> <td>{{name}}</td> <td>{{rating}}</td> <td>{{wins}}</td>  <td>{{losses}}</td></tr>
+    </script>
+    <!------------------------------>
+    <!-- End HAndlebars templates -->
+</head>
+<body>
     <header>
-      <nav id="top-nav">
-          <img id="icon" src="img/dota2icon.png">
-          <ul id="nav-menu">
-              <li class="home-nav-item">Home</li>
-              <li class="heroes-nav-item is-hidden">Heroes</li>
-              <li class="pros-nav-item is-hidden">Pros</li>
-              <li class="about-nav-item is-hidden">About</li>
-          </ul>
-      </nav>
+        <h3 class="home-nav-item">DOTA
+            <span>DOSSIER</span>
+        </h3>
+        <nav id="top-nav">
+            <img id="icon" src="img/dota2icon.png">
+            <ul id="nav-menu">
+                <li class="home-nav-item is-hidden">Home</li>
+                <li class="heroes-nav-item is-hidden">Heroes</li>
+                <li class="pros-nav-item is-hidden">Pros</li>
+                <li class="about-nav-item is-hidden">About</li>
+            </ul>
+        </nav>
     </header>
     <div class="video-overlay"></div>
     <div class="fullscreen-bg">
-      <!-- <video loop muted poster="img/ti7-video-frame.png" class="fullscreen-bg__video">
+        <!-- <video loop muted poster="img/ti7-video-frame.png" class="fullscreen-bg__video">
         <source src="video/ti7-opening-reel.mp4" type="video/mp4">
       </video> -->
     </div>
@@ -141,7 +172,14 @@
         </section>
 
         <section id="stats-view" class="container"></section>
-    </main>
+
+        <section id="pro-view" class="container">
+          <table id="pro-view-table">
+            <th><td>Team</td><td>Rating</td><td>Wins</td><td>Losses</td></th>
+          </table>
+        </section>
+    </main>   
+
     <footer class="footer-box">
         <div class="left-foot">
             <h3>DOTA
@@ -187,5 +225,7 @@
     <script src="/scripts/stats.js"></script>
     <script src="/scripts/heroView.js"></script>
     <script src="/scripts/view.js"></script>
+    <script src="/scripts/pro.js"></script>
   </body>
 </html>
+
