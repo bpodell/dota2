@@ -20,6 +20,8 @@ var app = app || {};
 
   heroView.initIndexPage = () => {
     heroView.setURl('home', '/')
+    $('.container').hide();
+    $('#hero-view').show();
     let localHeroes = localStorage.heroes ? JSON.parse(localStorage.heroes) : [];
     if (localStorage.etag === app.etag && localHeroes.length) return setAll(localHeroes);
     $.get('/heroes')
@@ -32,9 +34,7 @@ var app = app || {};
   };
 
   function setAll (heroData) {
-    console.log(heroData)
     heroData.sort((a,b) => a.name < b.name ? -1 : 1 );
-    console.log(heroData)
     app.Hero.all = heroData.map(hero => new app.Hero(hero))
     heroView.appendHeroView();
   }
@@ -67,19 +67,3 @@ $(function() {
   } )
 })
 
-// heroView.initIndexPage = () => {
-//   let heroData;
-//   if (localStorage.heroes) {
-//     console.log('inside if')
-//     setAll(JSON.parse(localStorage.heroes))
-
-//   } else {
-//     $.get('/heroes')
-//     // .then(data => )
-//       .then(data => {
-//         setAll(data)
-//         localStorage.heroes = JSON.stringify(data)})
-//       // .then(appendHeroView)
-//       .catch(console.error)
-//   }
-// }

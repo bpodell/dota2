@@ -8,16 +8,12 @@
 // downloadingVideo.src = "video/ti7-opening-reel";
 
 $('#icon, nav li').on('click', function () {
-  // console.log()
   if ($(window).width() < 781) {
     $('#nav-menu').toggleClass('is-visible');
   }
 });
 
 $('.home-nav-item').on('click', function() {
-  // if ($(window).width() < 781) {
-  //   $('.home-nav-item').toggleClass('is-visible');
-  // }
   $('.container').hide()
   $('#hero-view').show()
   $('html').animate({scrollTop:0}, 600);
