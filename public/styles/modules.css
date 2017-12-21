@@ -90,7 +90,11 @@ nav img {
   }
 
   #hero-header {
-    left: -8%;
+    width: 100%;
+  }
+
+  #hero-header div {
+    left: -25%;
     position: relative;
   }
 
