@@ -12,7 +12,7 @@ var app = app || {};
     let idx = $(heroItem).attr('data-hero-index')
     $('.container').hide()
     $('#stats-view').show()
-    $('#home-nav-item').on('click', () => {
+    $('.home-nav-item').on('click', () => {
       $('#stats-view').empty()
       $('.container').show()
     })
