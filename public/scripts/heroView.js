@@ -3,14 +3,23 @@ var app = app || {};
 (function(module) {
   let heroView = {};
   function appendHeroView() {
+
     app.Hero.all.forEach((hero, i) => {
       hero.arrayIndex = i
-      $('#hero-view').append(hero.toHtml())
+      $('#hero-view-list').append(hero.toHtml())
     })
+
 
   }
 
+  heroView.setURl = (view, url) => {
+    history.pushState( {
+      view: view,
+    }, null, url);
+  }
+
   heroView.initIndexPage = () => {
+    heroView.setURl('home', '/')
     let heroData;
     if (localStorage.heroes) {
       console.log('inside if')
@@ -28,16 +37,22 @@ var app = app || {};
   }
 
   function setAll (heroData) {
+    console.log(heroData)
+    heroData.sort((a,b) => a.name < b.name ? -1 : 1 );
+    console.log(heroData)
     app.Hero.all = heroData.map(hero => new app.Hero(hero))
     appendHeroView();
   }
+
+
   module.heroView = heroView
 })(app);
 
 $(function() {
   app.heroView.initIndexPage()
-  $('#hero-view').on('click', 'li', function() {
+  $('#hero-view-list').on('click', 'li', function() {
     app.stats.initStatsPage(this);
+    $('html').animate({ scrollTop: 0 }, 600);
   } )
 })
 
