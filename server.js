@@ -27,6 +27,12 @@ app.get('/heroes', (req, res) => {
     .then(results => res.send(results.rows))
     .catch(console.error)
 })
+
+app.get('/pro', (req, res) => {
+  superagent.get('https://api.opendota.com/api/teams?limit=16')
+    .then(response => res.send(response.body))
+    .catch(console.error)
+})
 // app.get('/etag' (req, res) => {
 //   client.query(`SELECT etag_id FROM etag`)
 //   .then(results => res.send(results.rows[0].etag))

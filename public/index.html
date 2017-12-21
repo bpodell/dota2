@@ -86,6 +86,9 @@
         </ul>
       </div>
   </script>
+  <script id="pro-template" type="text/x-handlebars-template">
+    <tr><td><img class="team-logo" src="{{logo_url}}"></td> <td>{{rating}}</td> <td>{{name}}</td> <td>{{wins}}</td>  <td>{{losses}}</td></tr>
+  </script>
   <!------------------------------>
   <!-- End HAndlebars templates -->
   </head>
@@ -140,6 +143,11 @@
         </section>
 
         <section id="stats-view" class="container"></section>
+        <section id="pro-view" class="container">
+          <table id="pro-view-table">
+            <th><td></td><td>Team</td><td>Rating</td><td>Wins</td><td>Losses</td></th>
+          </table>
+        </section>
     </main>   
     <footer class="footer-box">
         <div class="left-foot">
@@ -186,5 +194,6 @@
     <script src="/scripts/stats.js"></script>
     <script src="/scripts/heroView.js"></script>
     <script src="/scripts/view.js"></script>
+    <script src="/scripts/pro.js"></script>
   </body>
 </html>

@@ -60,7 +60,20 @@ nav img {
   font-size: 1.5em;
   margin: .25em;
 }
+/* Pro View */
 
+#pro-view {
+  margin-top: 160px;
+  list-style: none;
+  background-color: rgba(255, 255, 255, .1)
+}
+.team-logo {
+  height: 50px;
+  width: 100px;
+  background-color: black;
+  padding: 2px;
+  border-radius: 2px;
+}
 @media screen and (min-width: 780px) {
 
   body {
