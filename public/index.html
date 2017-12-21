@@ -10,7 +10,7 @@
     <link rel="shortcut icon" type="image/png" href="/dotadossier/public/img/favicon.ico" />
     <title>Dossier of the Ancients</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cinzel' rel='stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cinzel">
     <link rel="stylesheet" href="styles/reset.css">
     <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/layout.css">
@@ -109,6 +109,33 @@
     </div>
     <main>
         <section id="hero-view" class="container">
+            <form id="sort-form">
+                <select name="sort-select" id="sort-menu">
+                  <option value="name">Alphabetical</option>
+                  <option value="agi_gain">Agility Gain</option>
+                  <option value="attack_range">Attack Range</option>
+                  <option value="attack_rate">Attack Rate</option>
+                  <option value="base_agi">Base Agility</option>
+                  <option value="base_armor">Base Armor</option>
+                  <option value="base_attack_min">Base Attack Min</option>
+                  <option value="base_attack_max">Base Attack Max</option>
+                  <option value="base_health_regen">Base Health Regen</option>
+                  <option value="base_int">Base Intelligence</option>
+                  <option value="base_mana">Base Mana</option>
+                  <option value="base_mana_regen">Base Mana Regen</option>
+                  <option value="base_mr">Base Magic Resistance</option>
+                  <option value="base_str">Base Strength</option>
+                  <option value="int_gain">Intelligence Gain</option>
+                  <option value="move_speed">Movement Speed</option>
+                  <option value="projectile_speed">Projectile Speed</option>
+                  <option value="str_gain">Strength Gain</option>
+                  <option value="turn_rate">Turn Rate</option>
+                </select>
+                <select name="asc-select" id="asc-menu">
+                  <option value="asc">Ascending</option>
+                  <option value="desc">Descending</option>
+                  </select> 
+              </form>
             <ul id="hero-view-list"></ul>
         </section>
 
