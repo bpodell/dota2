@@ -31,7 +31,7 @@
     <!--hero template ---------->
     <script id="stats-template" type="text/x-handlebars-template">
       <div id="stats-div">
-        
+
         <img src="http://cdn.dota2.com{{img}}" id="stats-img">
         <h2 id="stats-h2">{{name}}</h2>
         <h3>Primary Attribute: <span class="{{primary_attr}}">{{primary_attr}}</span></h3>
@@ -39,8 +39,8 @@
         <ul id="basic-stats">
           <li>{{id}}</li>
           <li>{{hero_icon}}</li>
-          
-          
+
+
           <!-- <li>Pro Pick Rate: {{pro_pick}}</li>
           <li>Pro Win Rate: {{pro_win}}</li>
           <li>Pro Ban Rate: {{pro_ban}}</li> -->
@@ -99,13 +99,50 @@
       </nav>
     </header>
     <div class="video-overlay"></div>
-    <div class="fullscreen-bg">
+    <div class="fullscreen-bg"></div>
       <!-- <video loop muted poster="img/ti7-video-frame.png" class="fullscreen-bg__video">
         <source src="video/ti7-opening-reel.mp4" type="video/mp4">
       </video> -->
-    </div>
-    <form id="sort-form">
-      <select name="sort-select" id="sort-menu">
+      <form id="sort-form">
+        <div class="custom-select-wrap">
+          <div class="custom-select">
+          <input type="text" placeholder="Sort Heroes">
+          <input id="sort-menu" name="sort-select" type="hidden">
+          <ul class="custom-select-menu">
+            <li data-value="name">Alphabetical</li>
+            <li data-value="agi_gain">Agility Gain</li>
+            <li data-value="attack_range">Attack Range</li>
+            <li data-value="attack_rate">Attack Rate</li>
+            <li data-value="base_agi">Base Agility</li>
+            <li data-value="base_armor">Base Armor</li>
+            <li data-value="base_attack_min">Base Attack Min</li>
+            <li data-value="base_attack_max">Base Attack Max</li>
+            <li data-value="base_health_regen">Base Health Regen</li>
+            <li data-value="base_int">Base Intelligence</li>
+            <li data-value="base_mana">Base Mana</li>
+            <li data-value="base_mana_regen">Base Mana Regen</li>
+            <li data-value="base_mr">Base Magic Resistance</li>
+            <li data-value="base_str">Base Strength</li>
+            <li data-value="int_gain">Intelligence Gain</li>
+            <li data-value="move_speed">Movement Speed</li>
+            <li data-value="projectile_speed">Projectile Speed</li>
+            <li data-value="str_gain">Strength Gain</li>
+            <li data-value="turn_rate">Turn Rate</li>
+          </ul>
+        </div>
+      </div>
+      <div class="custom-select-wrap">
+        <div class="custom-select">
+          <input type="text" value="Ascending">
+          <input name="asc-select" id="asc-menu" type="hidden" value="asc">
+          <ul class="custom-select-menu">
+            <li data-value="asc">Ascending</li>
+            <li data-value="desc">Descending</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- <select name="sort-select" id="sort-menu">
         <option value="name">Alphabetical</option>
         <option value="agi_gain">Agility Gain</option>
         <option value="attack_range">Attack Range</option>
@@ -125,14 +162,14 @@
         <option value="projectile_speed">Projectile Speed</option>
         <option value="str_gain">Strength Gain</option>
         <option value="turn_rate">Turn Rate</option>
-      </select>
-      <select name="asc-select" id="asc-menu">
+      </select> -->
+      <!-- <select name="asc-select" id="asc-menu">
         <option value="asc">Ascending</option>
         <option value="desc">Descending</option>
-        </select> 
+      </select> -->
     </form>
-    <main>
-      <section id="hero-view" class="container">
+      <main>
+        <section id="hero-view" class="container">
           <ul id="hero-view-list"></ul>
       </section>
       <section id="stats-view" class="container"></section>
