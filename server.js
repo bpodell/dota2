@@ -27,11 +27,22 @@ app.get('/heroes', (req, res) => {
     .then(results => res.send(results.rows))
     .catch(console.error)
 })
-// app.get('/etag' (req, res) => {
-//   client.query(`SELECT etag_id FROM etag`)
-//   .then(results => res.send(results.rows[0].etag))
-//   .catch(console.error)
-// })
+
+
+app.get('/pro', (req, res) => {
+  superagent.get('https://api.opendota.com/api/teams?limit=16')
+    .then(response => res.send(response.body))
+    .catch(console.error)
+})
+
+app.get('/etags', checkHeaders, (req, res) => {
+  client.query(`SELECT etag_id FROM etag`)
+    .then(result => {
+      console.log('ETAG', result.rows[0].etag_id);
+      return result.rows[0] ? result.rows[0].etag_id : '';
+    }).then(etag => res.send(etag))
+});
+
 
 app.get('/stats/:id', (req, res) => {
   let url = `https://api.opendota.com/api/benchmarks?hero_id=${req.params.id}`;
@@ -140,20 +151,22 @@ function createDatabase(){
 
 }
 
-function checkHeaders() {
+function checkHeaders(req, res, next) {
+  console.log('check headers')
   let eTag;
   let dbTag;
   client.query(`SELECT etag_id FROM etag`)
-    .then(result => result.rows[0] ? dbTag = result.rows[0] : dbTag = '')
+    .then(result => result.rows[0] ? dbTag = result.rows[0].etag_id : dbTag = '')
   superagent.head('https://api.opendota.com/api/heroStats')
     .then((res) => {
       eTag = res.headers.etag;
-      console.log(res.headers)
-      console.log(eTag)
-      console.log(dbTag)
+      //console.log(res.headers)
+      //console.log('eTag', eTag)
+      //console.log('dbTag', dbTag)
       if (dbTag !== eTag) {
         client.query('TRUNCATE TABLE heroes')
           .then(loadHeroes)
       }
-    })
+    }).then(()=> {if (next) next()})
+
 }
