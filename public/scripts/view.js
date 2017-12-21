@@ -18,11 +18,13 @@ $('.home-nav-item').on('click', function() {
   // if ($(window).width() < 781) {
   //   $('.home-nav-item').toggleClass('is-visible');
   // }
+  $('.container').hide()
+  $('#hero-view').show()
   $('html').animate({scrollTop:0}, 600);
   $('.fullscreen-bg').css('background', `url(../img/allHeroesEdited.jpg) center center / cover no-repeat`);
 })
 
 
-
-
-
+$('.pros-nav-item').on('click', function() {
+  initProPage();
+})

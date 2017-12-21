@@ -28,7 +28,7 @@ function setPro(proData){
 function appendProView() {
   console.log('inside appendProView', Pro.all)
   $('.container').hide()
-//   $('#pro-view-table tr').empty()
+  $('tr').empty()
   $('#pro-view').show()
   Pro.all.forEach((team) => {
     $('#pro-view-table').append(team.toHtml())

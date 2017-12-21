@@ -18,7 +18,7 @@ header h3 {
 }
 
 header h3 span {
-  color: #832522
+  color: #b60500
 }
 
 #icon {
@@ -34,7 +34,7 @@ header h3 span {
   font-size: 25px;
   height: 2.2em;
   line-height: 2.2em;
-  background-color: #8d1c17;
+  background-color: #b60500;
 }
 
 #nav-menu li:hover {
@@ -91,6 +91,10 @@ header h3 span {
   border-radius: 2px;
 }
 
+#pro-view-table {
+  text-align: center;
+  valign: middle;
+}
 
 /* Desktop Styling */
 

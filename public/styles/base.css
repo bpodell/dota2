@@ -1,6 +1,7 @@
 body {
   color: #fff;
   font: Cinzel, helvetica, sans-serif;
+  cursor: default;
 }
 
 .fullscreen-bg {
