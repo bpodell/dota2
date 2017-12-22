@@ -21,6 +21,10 @@ header h3 span {
   color: #b60500
 }
 
+header h3:hover {
+  text-shadow: 0px -2px 0px rgba(0, 0, 0, 1), 0 0 5px rgba(255, 255, 255, 0.8), 0 -4px 15px rgba(255, 255, 255, 0.5);
+}
+
 #icon {
   float: right;
 }
@@ -38,7 +42,6 @@ header h3 span {
 }
 
 #nav-menu li:hover {
-  color: #90a0c0;
   text-shadow: 0px -2px 0px rgba(0, 0, 0, 1), 0 0 5px rgba(255, 255, 255, 0.8), 0 -4px 15px rgba(255, 255, 255, 0.5);
 }
 
@@ -76,6 +79,18 @@ header h3 span {
   margin: .25em;
 }
 
+
+/* footer */
+
+footer h3:hover {
+  text-shadow: 0px -2px 0px rgba(0, 0, 0, 1), 0 0 5px rgba(255, 255, 255, 0.8), 0 -4px 15px rgba(255, 255, 255, 0.5);
+}
+
+footer p span:hover {
+  text-shadow: 0px -2px 0px rgba(0, 0, 0, 1), 0 0 5px rgba(255, 255, 255, 0.8), 0 -4px 15px rgba(255, 255, 255, 0.5);
+}
+
+
 /* Pro View */
 
 #pro-view {
@@ -105,25 +120,29 @@ th, td {
 
 /* Desktop Styling */
 
-@media screen and (min-width: 780px) {
+@media screen and (min-width: 780px) {  
   body {
     margin-top: 280px;
   }
-  /* #nav-menu {
+
+  #nav-menu {
     display: block;
     position: absolute;
-    margin-top: 1.5%;
-    margin-left: 21%;
-  } */
-  /* #nav-menu li {
+    margin-top: 15px;
+    margin-left: 330px;
+  } 
+
+   #nav-menu li {
     display: inline-block;
     background-color: inherit;
     color: white;
     margin: 10px;
-  } */
+  }
+
   #nav-menu li.is-hidden {
     display: none;
   }
+
   #nav-menu li:nth-of-type(odd) {
     background-color: inherit;
   }
@@ -135,13 +154,6 @@ th, td {
     width: 100%;
   }
 
-  /* #hero-header div {
-    background-color: rgba(255, 255, 255, 0.05); */
-    
-    /* left: -25%;
-    position: relative; */
-  }
-
   #stats-div ul {
     columns: 2;
     /* background-color: rgba(255, 255, 255, 0.05); */
@@ -151,10 +163,6 @@ th, td {
   #stats-div h3 {
     font-size: 1.5em;
   }
-
-  /* #average-stats li:last-of-type {
-    
-  } */
 
   #icon {
     float: right;
