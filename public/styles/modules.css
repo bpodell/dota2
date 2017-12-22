@@ -104,12 +104,80 @@ th {
 }
 th, td {
   padding: 15px;
-  
+
+}
+
+.custom-select-wrap {
+  position: relative;
+  height: 48px;
+  top: -35px;
+}
+
+.custom-select {
+  position: absolute;
+  /* width: 300px; */
+  /* width: 100%; */
+  width: 80%;
+  left: 10%;
+  background-color: rgba(0, 13, 25, .5);
+  font-size: 24px;
+  line-height: 48px;
+  border: 1px solid #90a0c0;
+  border-radius: 4px;
+}
+
+
+.sort-select{
+  z-index: 9;
+}
+
+.asc-select{
+  z-index: 8;
+}
+
+.custom-select input {
+  cursor: pointer;
+  outline: none;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border: none;
+  color: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  text-indent: 15px;
+  text-align: center;
+  background-color: rgba(0, 13, 25, 0);
+}
+
+.custom-select-menu {
+  display: none;
+  background-color: rgba(0, 13, 25, .5);
+  text-indent: 15px;
+}
+
+.custom-select-menu li {
+  text-align: center;
+  margin: 0;
+  border-top: 1px solid #90a0c0;
+}
+
+.custom-select-menu li:first-of-type {
+  background-color: rgba(13, 26, 38, 1);
+}
+
+.custom-select-menu li:nth-last-of-type(even) {
+  background-color: rgba(13, 26, 38, .5);
+}
+
+.clear-fix {
+  height: 1px;
+  clear: both;
 }
 
 /* Desktop Styling */
 
-@media screen and (min-width: 780px) {  
+@media screen and (min-width: 780px) {
   body {
     margin-top: 180px;
   }
@@ -123,7 +191,7 @@ th, td {
     position: absolute;
     margin-top: 15px;
     margin-left: 330px;
-  } 
+  }
 
    #nav-menu li {
     display: inline-block;
@@ -183,4 +251,23 @@ th, td {
     float: right;
   }
 
+  .custom-select-wrap {
+    top: -75px;
+  }
+
+}
+
+
+/* #sort-form */
+
+@media screen and (min-width: 960px) {
+
+.custom-select-wrap {
+  float: left;
+  width: 285px;
+}
+.custom-select {
+  width: 285px;
+  left: 0;
+  }
 }

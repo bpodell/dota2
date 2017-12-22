@@ -65,6 +65,21 @@ $(function() {
     app.stats.initStatsPage(hero);
   } )
 
+  /************** custon select ********************/
+
+  $('.custom-select').on('click', 'li, input', function() {
+    console.log('this', this);
+    if ($(this).attr('data-value')) {
+      $(this).parent().siblings('input[type="text"]').val($(this).text())
+      $(this).parent().siblings('input[type="hidden"]').val($(this).attr('data-value')).change();
+      $(this).closest('form').change();
+    }
+    $(this).closest('.custom-select').toggleClass('z-index-nine');
+    $(this).closest('.custom-select').find('.custom-select-menu').slideToggle()
+
+  })
+
+
   /*********** History ***********/
   window.onpopstate = function (event){
     if ( !event.state ) return app.initFunctions['homeNavItem']();
