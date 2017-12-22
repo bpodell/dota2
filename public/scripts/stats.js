@@ -8,16 +8,12 @@ var app = app || {};
 
   let heroStats;
 
-  stats.initStatsPage = (heroItem) => {
-    let idx = $(heroItem).attr('data-hero-index')
+  stats.initStatsPage = (idx) => {
     $('.container').hide()
+    $('#stats-view').empty()
     $('#stats-view').show()
-    $('.home-nav-item').on('click', () => {
-      $('#stats-view').empty()
-      $('.container').show()
-    })
     heroStats = app.Hero.all[idx];
-    $.get(`/stats/${$(heroItem).attr('data-hero-id')}`)
+    $.get(`/stats/${heroStats.hero_id}`)
       .then(stats.parseBenchmarks)
       .then(()=> stats.toHtml() )
   }
@@ -31,7 +27,7 @@ var app = app || {};
     heroStats.tower_damage = benchMarks.result.tower_damage[4].value;
     heroStats.xp_per_min = benchMarks.result.xp_per_min[4].value;
     heroStats.primary_attr = heroStats.primary_attr.toUpperCase();
-    heroStats.roles = heroStats.roles.replace(/["\{\}]/g, '').replace(/,/g, ', ');
+    heroStats.roles = heroStats.roles.replace(/["{}]/g, '').replace(/,/g, ', ');
   }
 
   stats.toHtml = function() {
@@ -39,7 +35,7 @@ var app = app || {};
     $('#stats-view').append(template(heroStats));
     let x = heroStats.name.split(' ').join('').toLowerCase().replace(/'/g, '');
     let statURL = `/heroes-stat/${heroStats.name.split(' ').join('-')}`;
-    app.heroView.setURl('stats-view', statURL);
+    app.heroView.resetURl(heroStats.arrayIndex, statURL, 'initStatsPage');
     $('.fullscreen-bg').css('background', `url(../img/wallpaper/${x}.jpg) center center / cover no-repeat`);
   }
 
