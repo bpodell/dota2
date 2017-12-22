@@ -22,6 +22,8 @@ $('.about-nav-item').on('click', function () {
 
 
 $('.pros-nav-item').on('click', function() {
+  $('.container').hide();
+  $('html').animate({ scrollTop: 0 }, 600);
   initProPage();
   $('.fullscreen-bg').css('background', `url(../img/aegis.png) center center / cover no-repeat`);
 })
