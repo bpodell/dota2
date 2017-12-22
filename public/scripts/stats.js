@@ -8,11 +8,11 @@ var app = app || {};
 
   let heroStats;
 
-  stats.initStatsPage = (idx) => {
-    $('.container').hide()
-    $('#stats-view').empty()
-    $('#stats-view').show()
-    heroStats = app.Hero.all[idx];
+  stats.initStatsPage = (heroStats) => {
+    $('.container').hide();
+    $('#stats-view').empty();
+    $('#stats-view').show();
+    $('html').animate({ scrollTop: 0 }, 600);
     $.get(`/stats/${heroStats.hero_id}`)
       .then(stats.parseBenchmarks)
       .then(()=> stats.toHtml() )
@@ -33,10 +33,8 @@ var app = app || {};
   stats.toHtml = function() {
     var template = Handlebars.compile($('#stats-template').text());
     $('#stats-view').append(template(heroStats));
-    let x = heroStats.name.split(' ').join('').toLowerCase().replace(/'/g, '');
-    let statURL = `/heroes-stat/${heroStats.name.split(' ').join('-')}`;
-    app.heroView.resetURl(heroStats.arrayIndex, statURL, 'initStatsPage');
-    $('.fullscreen-bg').css('background', `url(../img/wallpaper/${x}.jpg) center center / cover no-repeat`);
+    let hero_image_name = heroStats.name.split(' ').join('').toLowerCase().replace(/'/g, '');
+    $('.fullscreen-bg').css('background', `url(../img/wallpaper/${hero_image_name}.jpg) center center / cover no-repeat`);
   }
 
   module.stats = stats;
