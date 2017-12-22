@@ -88,10 +88,15 @@ $(function() {
   /*********** History ***********/
   window.onpopstate = function (event){
     console.log('URL:', document.location, 'State:', event.state);
-    if (event.state === null) return app.initFunctions['initIndexPage']();
+  //  if (event.state === null) return app.initFunctions['initIndexPage']();
     if ( event.state ){
-      let fn = event.state.callback;
-      app.initFunctions[fn](event.state.data);
+      // let fn = event.state.callback;
+      // app.initFunctions[fn](event.state.data);
+      let view = event.state.callback
+      console.log("VIEW", view)
+      $('.container').hide()
+      $(`${view}`).show()
+
     }
     //let fn = event.state.callback;
     //app.initFunctions[fn](event.state.data)

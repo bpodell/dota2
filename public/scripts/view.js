@@ -15,7 +15,7 @@ $('.home-nav-item').on('click', function() {
 })
 
 $('.about-nav-item').on('click', function () {
-  app.heroView.setURl('', '/about', 'about' )
+  app.heroView.setURl('', '/about', '#about-view' )
   $('.container').hide()
   $('#about-me').show()
   $('html').animate({ scrollTop: 0 }, 600);
@@ -24,7 +24,7 @@ $('.about-nav-item').on('click', function () {
 
 
 $('.pros-nav-item').on('click', function() {
-  app.heroView.setURl('', '/pro-team-stats', 'pros' )
+  app.heroView.setURl('', '/pro-team-stats', '#pro-view' )
   $('.container').hide();
   $('html').animate({ scrollTop: 0 }, 600);
   initProPage();
