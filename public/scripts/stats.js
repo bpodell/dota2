@@ -35,7 +35,7 @@ var app = app || {};
     $('#stats-view').append(template(heroStats));
     let x = heroStats.name.split(' ').join('').toLowerCase().replace(/'/g, '');
     let statURL = `/heroes-stat/${heroStats.name.split(' ').join('-')}`;
-    app.heroView.resetURl(heroStats.arrayIndex, statURL, 'initStatsPage');
+    app.heroView.setURl(heroStats.arrayIndex, statURL, 'initStatsPage');
     $('.fullscreen-bg').css('background', `url(../img/wallpaper/${x}.jpg) center center / cover no-repeat`);
   }
 

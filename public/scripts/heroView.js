@@ -11,6 +11,10 @@ var app = app || {};
   }
 
   heroView.setURl = (data, url, callback) => {
+    console.log('window state', window.history.state)
+    console.log('window.location.pathname', window.location.pathname, 'url', url);
+    if (window.location.pathname === url) return
+    console.log('pushState')
     history.pushState( {
       data: data,
       callback: callback
@@ -25,7 +29,7 @@ var app = app || {};
   }
 
   heroView.initIndexPage = () => {
-    heroView.setURl('', '/', 'initIndexPage' )
+  //  heroView.setURl('', '/', 'initIndexPage' )
     $('.container').hide();
     $('#hero-view').show();
 
@@ -48,12 +52,12 @@ var app = app || {};
 
   module.heroView = heroView
 
-  module.initFunctions = {initStatsPage: module.stats.initStatsPage, initIndexPage: ()=> $('.home-nav-item').click()};
+  module.initFunctions = {initStatsPage: module.stats.initStatsPage, 'initIndexPage': ()=> $('.home-nav-item').click(), 'about': ()=> $('.about-nav-item').click(), pros: $('.pros-nav-item').click()};
 
 })(app);
 
 $(function() {
-
+  app.heroView.setURl('', '/', 'initIndexPage' )
   $.get('/etags').then(etag => {
     app.etag = etag
     app.heroView.initIndexPage()
@@ -73,22 +77,25 @@ $(function() {
     $('html').animate({ scrollTop: 0 }, 600);
   } )
 
-  $('.home-nav-item').on('click', function() {
-    app.heroView.resetURl('', '/', 'initIndexPage' )
-    $('.container').hide()
-    $('#hero-view').show()
-    $('html').animate({scrollTop:0}, 600);
-    $('.fullscreen-bg').css('background', `url(../img/allHeroesEdited.jpg) center center / cover no-repeat`);
-  })
+  // $('.home-nav-item').on('click', function() {
+  //   app.heroView.resetURl('', '/', 'initIndexPage' )
+  //   $('.container').hide()
+  //   $('#hero-view').show()
+  //   $('html').animate({scrollTop:0}, 600);
+  //   $('.fullscreen-bg').css('background', `url(../img/allHeroesEdited.jpg) center center / cover no-repeat`);
+  // })
 
   /*********** History ***********/
   window.onpopstate = function (event){
     console.log('URL:', document.location, 'State:', event.state);
-    if (event.state){
+    if (event.state === null) return app.initFunctions['initIndexPage']();
+    if ( event.state ){
       let fn = event.state.callback;
-      app.initFunctions[fn](event.state.data)
+      app.initFunctions[fn](event.state.data);
     }
+    //let fn = event.state.callback;
+    //app.initFunctions[fn](event.state.data)
+
   }
 
 })
-

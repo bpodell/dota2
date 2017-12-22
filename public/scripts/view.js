@@ -7,6 +7,7 @@ $('#icon, nav li').on('click', function () {
 });
 
 $('.home-nav-item').on('click', function() {
+  app.heroView.setURl('', '/', 'initIndexPage' )
   $('.container').hide()
   $('#hero-view').show()
   $('html').animate({scrollTop:0}, 600);
@@ -14,6 +15,7 @@ $('.home-nav-item').on('click', function() {
 })
 
 $('.about-nav-item').on('click', function () {
+  app.heroView.setURl('', '/about', 'about' )
   $('.container').hide()
   $('#about-me').show()
   $('html').animate({ scrollTop: 0 }, 600);
@@ -22,6 +24,7 @@ $('.about-nav-item').on('click', function () {
 
 
 $('.pros-nav-item').on('click', function() {
+  app.heroView.setURl('', '/pro-team-stats', 'pros' )
   $('.container').hide();
   $('html').animate({ scrollTop: 0 }, 600);
   initProPage();
