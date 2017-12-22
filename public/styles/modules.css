@@ -165,6 +165,14 @@ th, td {
     width: 100%;
   }
 
+  #hero-view {
+    margin-top: 40px;
+  }
+
+  #stats-div {
+    margin-top: 40px;
+  }
+
   #stats-div ul {
     columns: 2;
     /* background-color: rgba(255, 255, 255, 0.05); */
