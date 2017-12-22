@@ -9,24 +9,7 @@ nav img {
 }
 
 header h3 {
-  color: #fff;
-  font: 36px Cinzel;
-  margin: 0 0 10px;
-  position: absolute;
-  margin-left: 31px;
-  margin-top: 29px; 
-}
-
-header h3 span {
-  color: #b60500
-}
-
-header h3:hover {
-  text-shadow: 0px -2px 0px rgba(0, 0, 0, 1), 0 0 5px rgba(255, 255, 255, 0.8), 0 -4px 15px rgba(255, 255, 255, 0.5);
-}
-
-#icon {
-  float: right;
+  display: none;
 }
 
 #nav-menu {
@@ -38,7 +21,7 @@ header h3:hover {
   font-size: 25px;
   height: 2.2em;
   line-height: 2.2em;
-  background-color: #b60500;
+  background-color: #292d33;
 }
 
 #nav-menu li:hover {
@@ -48,6 +31,12 @@ header h3:hover {
 #nav-menu.is-visible {
   display: block;
 }
+
+
+
+/* #icon:click + #home {
+  display: block;
+} */
 
 
 /* hero list view on mobile */
@@ -125,6 +114,10 @@ th, td {
     margin-top: 280px;
   }
 
+  #icon {
+    float: right;
+  }
+
   #nav-menu {
     display: block;
     position: absolute;
@@ -145,6 +138,24 @@ th, td {
 
   #nav-menu li:nth-of-type(odd) {
     background-color: inherit;
+  }
+
+  header h3 {
+    display: block;
+    color: #fff;
+    font: 36px Cinzel;
+    margin: 0 0 10px;
+    position: absolute;
+    margin-left: 31px;
+    margin-top: 29px;
+  }
+
+  header h3 span {
+    color: #b60500
+  }
+
+  header h3:hover {
+    text-shadow: 0px -2px 0px rgba(0, 0, 0, 1), 0 0 5px rgba(255, 255, 255, 0.8), 0 -4px 15px rgba(255, 255, 255, 0.5);
   }
 
 

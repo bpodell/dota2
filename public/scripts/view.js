@@ -1,5 +1,11 @@
 'use strict';
 
+// $('#icon').on('click', function () {
+//   if ($(window).width() < 781) {
+//     $('#home').toggleClass('is-visible');
+//   }
+// })
+
 $('#icon, nav li').on('click', function () {
   if ($(window).width() < 781) {
     $('#nav-menu').toggleClass('is-visible');
@@ -22,6 +28,8 @@ $('.about-nav-item').on('click', function () {
 
 
 $('.pros-nav-item').on('click', function() {
+  $('.container').hide();
+  $('html').animate({ scrollTop: 0 }, 600);
   initProPage();
   $('.fullscreen-bg').css('background', `url(../img/aegis.png) center center / cover no-repeat`);
 })
