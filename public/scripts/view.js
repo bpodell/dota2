@@ -15,7 +15,7 @@ $('.home-nav-item').on('click', function() {
 
 $('.about-nav-item').on('click', function () {
   $('.container').hide()
-  $('#about-me').show()
+  $('#about-view').show()
   $('html').animate({ scrollTop: 0 }, 600);
   $('.fullscreen-bg').css('background', `url(../img/class.jpg) center center / cover no-repeat`);
 })
