@@ -70,14 +70,14 @@ $(function() {
   $('#hero-view-list').on('click', 'li', function() {
     //app.stats.initStatsPage(this);
     app.stats.initStatsPage($(this).attr('data-hero-index'));
-    $('html').animate({ scrollTop: 0 }, 600);
+    $('html').animate({ scrollTop: 0 }, 400);
   } )
 
   $('.home-nav-item').on('click', function() {
     app.heroView.resetURl('', '/', 'initIndexPage' )
     $('.container').hide()
     $('#hero-view').show()
-    $('html').animate({scrollTop:0}, 600);
+    $('html').animate({scrollTop:0}, 400);
     $('.fullscreen-bg').css('background', `url(../img/allHeroesEdited.jpg) center center / cover no-repeat`);
   })
 
