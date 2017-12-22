@@ -1,6 +1,7 @@
 body {
   color: #fff;
-  font-family: helvetica, sans-serif;
+  font: Cinzel, helvetica, sans-serif;
+  cursor: default;
 }
 
 .fullscreen-bg {
@@ -13,7 +14,7 @@ body {
   opacity: 0.5;
   overflow: hidden;
   z-index: -5;
-  margin-top: 120px;
+  margin-top: 100px;
 }
 
 .video-overlay {
@@ -28,10 +29,18 @@ body {
   z-index: -9;
 }
 
-a {
+body a {
   text-decoration: none;
 }
 
-.is-hidden {
+/* .is-hidden {
+  display: none;
+} */
+
+#about-view {
+  display: none;
+}
+
+#pro-view {
   display: none;
 }
