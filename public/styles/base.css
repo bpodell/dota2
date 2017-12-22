@@ -33,9 +33,9 @@ body a {
   text-decoration: none;
 }
 
-.is-hidden {
+/* .is-hidden {
   display: none;
-}
+} */
 
 #about-view {
   display: none;
