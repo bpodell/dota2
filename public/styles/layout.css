@@ -3,6 +3,7 @@ header {
     position: fixed;
     top: 0;
     width: 100%;
+    z-index: 1000;
 }
 
 main {
@@ -29,6 +30,13 @@ footer {
     margin-bottom: 15px;
     /* margin-top: 120px; */
 }
+
+#stats-div li {
+    line-height: 32px;
+    margin-bottom: 0;
+    background-color: rgba(255, 255, 255, 0.1)
+}
+
 #stats-img{
     margin: 0 auto;
     display: block;
