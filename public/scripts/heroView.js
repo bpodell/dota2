@@ -53,12 +53,12 @@ var app = app || {};
 })(app);
 
 $(function() {
-
+  $('.container').hide();
   $.get('/etags').then(etag => {
     app.etag = etag
-    app.heroView.initIndexPage()
+    app.heroView.initIndexPage();
     $('#sort-form').on('change', function(e) {
-      let eVal = $('#sort-menu').val()
+      let eVal = $('#sort-menu').val();
       app.Hero.all.sort((a,b) => a[eVal] < b[eVal] ? -1 : 1 );
       if ($('#asc-menu').val() === 'desc') app.Hero.all.reverse();
       $('#hero-view-list').empty();
