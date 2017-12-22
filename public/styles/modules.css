@@ -1,0 +1,186 @@
+/* navigation menu styling */
+
+nav {
+  text-align: center;
+}
+
+nav img {
+  width: 100px;
+}
+
+header h3 {
+  display: none;
+}
+
+#nav-menu {
+  display: none;
+  color: white;
+}
+
+#nav-menu li {
+  font-size: 25px;
+  height: 2.2em;
+  line-height: 2.2em;
+  background-color: #292d33;
+}
+
+#nav-menu li:hover {
+  text-shadow: 0px -2px 0px rgba(0, 0, 0, 1), 0 0 5px rgba(255, 255, 255, 0.8), 0 -4px 15px rgba(255, 255, 255, 0.5);
+}
+
+#nav-menu.is-visible {
+  display: block;
+}
+
+
+
+/* #icon:click + #home {
+  display: block;
+} */
+
+
+/* hero list view on mobile */
+
+#hero-view {
+  margin-top: 140px;
+}
+
+#hero-view-list {
+  text-align: center;
+}
+
+#hero-view-list li {
+  background-color: black;
+  border: 4px solid #90a0c0;
+  margin: .5vw;
+  display: inline-block;
+}
+#hero-view-list li:hover {
+  border-style: outset;
+}
+
+#hero-view-list img {
+  max-width: 100vw;
+}
+
+#hero-view-list h2 {
+  font-size: 1.5em;
+  margin: .25em;
+}
+
+
+/* footer */
+
+footer h3:hover {
+  text-shadow: 0px -2px 0px rgba(0, 0, 0, 1), 0 0 5px rgba(255, 255, 255, 0.8), 0 -4px 15px rgba(255, 255, 255, 0.5);
+}
+
+footer p span:hover {
+  text-shadow: 0px -2px 0px rgba(0, 0, 0, 1), 0 0 5px rgba(255, 255, 255, 0.8), 0 -4px 15px rgba(255, 255, 255, 0.5);
+}
+
+
+/* Pro View */
+
+#pro-view {
+  margin-top: 160px;
+  list-style: none;
+  background-color: rgba(255, 255, 255, .1)
+}
+.team-logo {
+  height: 50px;
+  width: 100px;
+  background-color: black;
+  padding: 2px;
+  border-radius: 2px;
+}
+
+#pro-view-table {
+  text-align: center;
+  width: 100%
+}
+th {
+  height: 50px;
+}
+th, td {
+  padding: 15px;
+  
+}
+
+/* Desktop Styling */
+
+@media screen and (min-width: 780px) {  
+  body {
+    margin-top: 180px;
+  }
+
+  #icon {
+    float: right;
+  }
+
+  #nav-menu {
+    display: block;
+    position: absolute;
+    margin-top: 15px;
+    margin-left: 330px;
+  } 
+
+   #nav-menu li {
+    display: inline-block;
+    background-color: inherit;
+    color: white;
+    margin: 10px;
+  }
+
+  #nav-menu li.is-hidden {
+    display: none;
+  }
+
+  #nav-menu li:nth-of-type(odd) {
+    background-color: inherit;
+  }
+
+  header h3 {
+    display: block;
+    color: #fff;
+    font: 36px Cinzel;
+    margin: 0 0 10px;
+    position: absolute;
+    margin-left: 31px;
+    margin-top: 29px;
+  }
+
+  header h3:hover {
+    text-shadow: 0px -2px 0px rgba(0, 0, 0, 1), 0 0 5px rgba(255, 255, 255, 0.8), 0 -4px 15px rgba(255, 255, 255, 0.5);
+  }
+
+
+  /* desktop styling for stats page */
+
+  #hero-header {
+    width: 100%;
+  }
+
+  #hero-view {
+    margin-top: 40px;
+  }
+
+  #stats-div {
+    margin-top: 40px;
+  }
+
+  #stats-div ul {
+    columns: 2;
+    /* background-color: rgba(255, 255, 255, 0.05); */
+    font-size: 1.5em;
+  }
+
+  #stats-div h3 {
+    font-size: 1.5em;
+  }
+
+  #icon {
+    float: right;
+  }
+
+}
