@@ -23,7 +23,6 @@ var app = app || {};
   }
 
   stats.parseBenchmarks = (benchMarks) => {
-    console.log('benchMarks', benchMarks);
     heroStats.gold_per_min = benchMarks.result.gold_per_min[4].value;
     heroStats.hero_damage_per_min = (Math.round(benchMarks.result.hero_damage_per_min[4].value* 100)/100).toFixed(2);
     heroStats.hero_healing_per_min = (Math.round(benchMarks.result.hero_healing_per_min[4].value* 100)/100).toFixed(2) || 0;

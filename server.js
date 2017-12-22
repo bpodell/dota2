@@ -11,8 +11,6 @@ const PORT = process.env.PORT;
 const client = new pg.Client(process.env.DATABASE_URL)
 
 app.use(express.static('./public'));
-
-console.log('process.env.DATABASE_URL', process.env.DATABASE_URL);
 client.connect();
 client.on('error', err => console.error(err));
 
@@ -38,7 +36,6 @@ app.get('/pro', (req, res) => {
 app.get('/etags', checkHeaders, (req, res) => {
   client.query(`SELECT etag_id FROM etag`)
     .then(result => {
-      console.log('ETAG', result.rows[0].etag_id);
       return result.rows[0] ? result.rows[0].etag_id : '';
     }).then(etag => res.send(etag))
 });
@@ -58,26 +55,7 @@ app.listen(PORT, () => console.log(`listening on port : ${PORT}`))
 
 /******************/
 
-// function loadHeroes() {
-//   console.log('load HEROES');
-//   client.query(`SELECT COUNT(*) FROM  heroes`)
-//     .then(results => {
-//       if (! parseInt(results.rows[0].count)){
-//         fs.readFile('./data/heroesData.json', 'utf-8', (err, fd)=> {
-//           JSON.parse(fd).forEach(ele => {
-//             client.query(
-//               `INSERT INTO heroes( name, image_url, primary_attr, roles, move_speed, turn_rate, hero_id)
-//             VALUES($1, $2, $3, $4, $5, $6, $7) ON CONFLICT DO NOTHING;`,
-//               [ele.localized_name, ele.img, ele.primary_attr, ele.roles, ele.move_speed, ele.turn_rate, ele.id]
-//             )
-//           })
-//         })
-//       }
-//     })
-// }
-
 function loadHeroes() {
-  console.log('load heroes')
   client.query(`SELECT COUNT(*) FROM  heroes`)
     .then(results => {
       if (! parseInt(results.rows[0].count)){
@@ -108,7 +86,6 @@ function loadHeroes() {
 }
 
 function createDatabase(){
-  console.log('loading database')
   client.query(`
     CREATE TABLE IF NOT EXISTS
     heroes (
@@ -152,7 +129,6 @@ function createDatabase(){
 }
 
 function checkHeaders(req, res, next) {
-  console.log('check headers')
   let eTag;
   let dbTag;
   client.query(`SELECT etag_id FROM etag`)
@@ -160,9 +136,6 @@ function checkHeaders(req, res, next) {
   superagent.head('https://api.opendota.com/api/heroStats')
     .then((res) => {
       eTag = res.headers.etag;
-      //console.log(res.headers)
-      //console.log('eTag', eTag)
-      //console.log('dbTag', dbTag)
       if (dbTag !== eTag) {
         client.query('TRUNCATE TABLE heroes')
           .then(loadHeroes)

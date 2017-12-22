@@ -93,7 +93,14 @@ header h3 span {
 
 #pro-view-table {
   text-align: center;
-  valign: middle;
+  width: 100%
+}
+th {
+  height: 50px;
+}
+th, td {
+  padding: 15px;
+  
 }
 
 /* Desktop Styling */
