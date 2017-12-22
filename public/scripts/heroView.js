@@ -11,25 +11,14 @@ var app = app || {};
   }
 
   heroView.setURl = (data, url, callback) => {
-    console.log('window state', window.history.state)
-    console.log('window.location.pathname', window.location.pathname, 'url', url);
     if (window.location.pathname === url) return
-    console.log('pushState')
     history.pushState( {
       data: data,
       callback: callback
     }, null, url);
   }
 
-  heroView.resetURl = (data, url, callback) => {
-    history.replaceState( {
-      data: data,
-      callback: callback
-    }, null, url);
-  }
-
   heroView.initIndexPage = () => {
-  //  heroView.setURl('', '/', 'initIndexPage' )
     $('.container').hide();
     $('#hero-view').show();
 
@@ -50,8 +39,6 @@ var app = app || {};
     heroView.appendHeroView();
   }
 
-  // module.initFunctions = {initStatsPage: module.stats.initStatsPage, homeNavItem: module.view.home_nav_item, aboutNavItem: module.view.about_nav_item, prosNavItem: module.view.pros_nav_item};
-
   module.heroView = heroView
 
 })(app);
@@ -71,7 +58,6 @@ $(function() {
   });
 
   $('#hero-view-list').on('click', 'li', function() {
-    //app.stats.initStatsPage(this);
     let idx = $(this).attr('data-hero-index');
     let hero = app.Hero.all[idx];
     let statURL = `/heroes-stat/${hero.name.split(' ').join('-')}`;
@@ -79,22 +65,11 @@ $(function() {
     app.stats.initStatsPage(hero);
   } )
 
-  // $('.home-nav-item').on('click', function() {
-  //   app.heroView.resetURl('', '/', 'initIndexPage' )
-  //   $('.container').hide()
-  //   $('#hero-view').show()
-  //   $('html').animate({scrollTop:0}, 600);
-  //   $('.fullscreen-bg').css('background', `url(../img/allHeroesEdited.jpg) center center / cover no-repeat`);
-  // })
-
   /*********** History ***********/
   window.onpopstate = function (event){
-    console.log('URL:', document.location, 'State:', event.state);
-    if ( event.state ){
-      let fn = event.state.callback
-      let fargs = (fn === 'initStatsPage') ? app.Hero.all[event.state.data] : event.state.data;
-      console.log('fn', fn, 'fargs', fargs)
-      //app.initFunctions[fn](fargs);
-    }
+    if ( !event.state ) return app.initFunctions['homeNavItem']();
+    let fn = event.state.callback
+    let fargs = (fn === 'initStatsPage') ? app.Hero.all[event.state.data] : event.state.data;
+    app.initFunctions[fn](fargs);
   }
 })

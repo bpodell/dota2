@@ -36,7 +36,7 @@ var app = app || {};
 
   view.about_nav_item = () => {
     $('.container').hide()
-    $('#about-me').show()
+    $('#about-view').show()
     $('html').animate({ scrollTop: 0 }, 600);
     $('.fullscreen-bg').css('background', `url(../img/class.jpg) center center / cover no-repeat`);
   }
