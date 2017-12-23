@@ -154,6 +154,8 @@ th, td {
   display: none;
   background-color: rgba(0, 13, 25, .5);
   text-indent: 15px;
+  overflow: auto;
+  height: 30vh;
 }
 
 .custom-select-menu li {

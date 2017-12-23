@@ -79,6 +79,14 @@ $(function() {
 
   })
 
+  /******* data for custom select autocomoplete *******/
+
+  let listText = $('#sort-menu').siblings('ul').text();
+  //let listOptions = listText.match(/^\s+(.*)\s+$/g).reduce((items,item) => `<option value="${item}">`);
+  let listOptions = listText.split('\n').reduce((items, item) => item.trim() ? items + `<option value="${item.trim()}">` : items);
+  //console.log('listOptions', listOptions);
+  $('#sort-select-data').html(listOptions)
+
 
   /*********** History ***********/
   window.onpopstate = function (event){
