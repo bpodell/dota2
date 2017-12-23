@@ -8,6 +8,15 @@
     <meta name="author" content="Kevin Miller, Mitchell Massie, Bill Odell, Jamie Williams">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Open Graph -->
+    <meta property="og:title" content=“Dossier of the Ancients” >
+    <meta property="og:type" content="website" >
+    <meta property="og:url" content="/public/img/dota_.dossier.jpg" >
+    <meta property="og:description" content=“A hero fansite for the multiplayer online battle arena video game, dota2 (Defense of the Ancients).  There are 115 heroes in the game, all with varying abilities and attributes. Data Dossier enables users to quickly sort the heroes by their attributes, easing the selection of a hero based on their individual strengths and strategies.”>
+
+    <meta property="og:locale" content="en_US" >
+    <meta property="og:site_name" content=“Dota Dossier” >
+    <!-- END Open Graph -->
     <link rel="shortcut icon" type="image/png" href="/dotadossier/public/img/favicon.ico" />
     <title>Dossier of the Ancients</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -135,17 +144,13 @@
     </header>
     <div class="video-overlay"></div>
     <div class="fullscreen-bg">
-        <!-- <video loop muted poster="img/ti7-video-frame.png" class="fullscreen-bg__video">
-        <source src="video/ti7-opening-reel.mp4" type="video/mp4">
-      </video> -->
     </div>
     <main>
         <section id="hero-view" class="container">
           <form id="sort-form">
             <div class="custom-select-wrap">
               <div class="custom-select sort-select">
-                <input type="text" placeholder="Sort Heroes">
-                <!-- <input type="text" placeholder="Sort Heroes" list="sort-select-data" datalist> -->
+                <input type="text" placeholder="Sort Heroes" readonly>
                 <input id="sort-menu" name="sort-select" type="hidden">
                 <ul class="custom-select-menu">
                   <li data-value="name">Alphabetical</li>
@@ -170,7 +175,6 @@
                 </ul>
               </div>
             </div>
-            <datalist id="sort-select-data"></datalist>
             <div class="custom-select-wrap">
               <div class="custom-select asc-select">
                 <input type="text" value="Ascending">
