@@ -8,6 +8,15 @@
     <meta name="author" content="Kevin Miller, Mitchell Massie, Bill Odell, Jamie Williams">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Dossier of the Ancients" >
+    <meta property="og:url"	content="https://dotadossier.herokuapp.com/" >
+    <meta property="og:type" content="website" >
+    <meta property="og:image" content="https://dotadossier.herokuapp.com/img/dota_dossier.jpg" >
+    <meta property="og:description" content="A hero fansite for the multiplayer online battle arena video game, Dota2 (Defense of the Ancients).  Data Dossier enables users to quickly sort heroes based on their strengths and strategies.">
+    <meta property="og:locale" content="en_us" >
+    <meta property="og:site_name" content="Dota Dossier" >
+    <!-- END Open Graph -->
     <link rel="shortcut icon" type="image/png" href="/dotadossier/public/img/favicon.ico" />
     <title>Dossier of the Ancients</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -112,7 +121,7 @@
             </ul>
         </div>
     </script>
-  
+
     <script id="pro-template" type="text/x-handlebars-template">
       <tr><td><img class="team-logo" src="{{logo_url}}"></td> <td>{{name}}</td> <td>{{rating}}</td> <td>{{wins}}</td>  <td>{{losses}}</td></tr>
     </script>
@@ -135,40 +144,50 @@
     </header>
     <div class="video-overlay"></div>
     <div class="fullscreen-bg">
-        <!-- <video loop muted poster="img/ti7-video-frame.png" class="fullscreen-bg__video">
-        <source src="video/ti7-opening-reel.mp4" type="video/mp4">
-      </video> -->
     </div>
     <main>
         <section id="hero-view" class="container">
-            <form id="sort-form">
-                <select name="sort-select" id="sort-menu">
-                  <option value="name">Alphabetical</option>
-                  <option value="agi_gain">Agility Gain</option>
-                  <option value="attack_range">Attack Range</option>
-                  <option value="attack_rate">Attack Rate</option>
-                  <option value="base_agi">Base Agility</option>
-                  <option value="base_armor">Base Armor</option>
-                  <option value="base_attack_min">Base Attack Min</option>
-                  <option value="base_attack_max">Base Attack Max</option>
-                  <option value="base_health_regen">Base Health Regen</option>
-                  <option value="base_int">Base Intelligence</option>
-                  <option value="base_mana">Base Mana</option>
-                  <option value="base_mana_regen">Base Mana Regen</option>
-                  <option value="base_mr">Base Magic Resistance</option>
-                  <option value="base_str">Base Strength</option>
-                  <option value="int_gain">Intelligence Gain</option>
-                  <option value="move_speed">Movement Speed</option>
-                  <option value="projectile_speed">Projectile Speed</option>
-                  <option value="str_gain">Strength Gain</option>
-                  <option value="turn_rate">Turn Rate</option>
-                </select>
-                <select name="asc-select" id="asc-menu">
-                  <option value="asc">Ascending</option>
-                  <option value="desc">Descending</option>
-                  </select> 
-              </form>
-            <ul id="hero-view-list"></ul>
+          <form id="sort-form">
+            <div class="custom-select-wrap">
+              <div class="custom-select sort-select">
+                <input type="text" placeholder="Sort Heroes" readonly>
+                <input id="sort-menu" name="sort-select" type="hidden">
+                <ul class="custom-select-menu">
+                  <li data-value="name">Alphabetical</li>
+                  <li data-value="agi_gain">Agility Gain</li>
+                  <li data-value="attack_range">Attack Range</li>
+                  <li data-value="attack_rate">Attack Rate</li>
+                  <li data-value="base_agi">Base Agility</li>
+                  <li data-value="base_armor">Base Armor</li>
+                  <li data-value="base_attack_min">Base Attack Min</li>
+                  <li data-value="base_attack_max">Base Attack Max</li>
+                  <li data-value="base_health_regen">Base Health Regen</li>
+                  <li data-value="base_int">Base Intelligence</li>
+                  <li data-value="base_mana">Base Mana</li>
+                  <li data-value="base_mana_regen">Base Mana Regen</li>
+                  <li data-value="base_mr">Base Magic Resistance</li>
+                  <li data-value="base_str">Base Strength</li>
+                  <li data-value="int_gain">Intelligence Gain</li>
+                  <li data-value="move_speed">Movement Speed</li>
+                  <li data-value="projectile_speed">Projectile Speed</li>
+                  <li data-value="str_gain">Strength Gain</li>
+                  <li data-value="turn_rate">Turn Rate</li>
+                </ul>
+              </div>
+            </div>
+            <div class="custom-select-wrap">
+              <div class="custom-select asc-select">
+                <input type="text" value="Ascending">
+                <input name="asc-select" id="asc-menu" type="hidden" value="asc">
+                <ul class="custom-select-menu">
+                  <li data-value="asc">Ascending</li>
+                  <li data-value="desc">Descending</li>
+                </ul>
+              </div>
+            </div>
+            <div class="clear-fix"></div>
+          </form>
+          <ul id="hero-view-list"></ul>
         </section>
 
         <section id="stats-view" class="container"></section>
@@ -296,7 +315,7 @@
 
                 </div>
         </section>
-    </main> 
+    </main>
 
     <footer class="footer-box">
         <div class="left-foot">
@@ -344,4 +363,3 @@
     <script src="/scripts/pro.js"></script>
   </body>
 </html>
-

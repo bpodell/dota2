@@ -11,21 +11,14 @@ var app = app || {};
   }
 
   heroView.setURl = (data, url, callback) => {
+    if (window.location.pathname === url) return
     history.pushState( {
       data: data,
       callback: callback
     }, null, url);
   }
 
-  heroView.resetURl = (data, url, callback) => {
-    history.replaceState( {
-      data: data,
-      callback: callback
-    }, null, url);
-  }
-
   heroView.initIndexPage = () => {
-    heroView.setURl('', '/', 'initIndexPage' )
     $('.container').hide();
     $('#hero-view').show();
 
@@ -48,17 +41,15 @@ var app = app || {};
 
   module.heroView = heroView
 
-  module.initFunctions = {initStatsPage: module.stats.initStatsPage, initIndexPage: ()=> $('.home-nav-item').click()};
-
 })(app);
 
 $(function() {
-  $('.container').hide();
+  app.heroView.setURl('', '/', 'homeNavItem' )
   $.get('/etags').then(etag => {
     app.etag = etag
-    app.heroView.initIndexPage();
+    app.heroView.initIndexPage()
     $('#sort-form').on('change', function(e) {
-      let eVal = $('#sort-menu').val();
+      let eVal = $('#sort-menu').val()
       app.Hero.all.sort((a,b) => a[eVal] < b[eVal] ? -1 : 1 );
       if ($('#asc-menu').val() === 'desc') app.Hero.all.reverse();
       $('#hero-view-list').empty();
@@ -66,29 +57,42 @@ $(function() {
     })
   });
 
-
   $('#hero-view-list').on('click', 'li', function() {
-    //app.stats.initStatsPage(this);
-    app.stats.initStatsPage($(this).attr('data-hero-index'));
-    $('html').animate({ scrollTop: 0 }, 400);
+    let idx = $(this).attr('data-hero-index');
+    let hero = app.Hero.all[idx];
+    let statURL = `/heroes-stat/${hero.name.split(' ').join('-')}`;
+    app.heroView.setURl(idx , statURL, 'initStatsPage');
+    app.stats.initStatsPage(hero);
   } )
 
-  $('.home-nav-item').on('click', function() {
-    app.heroView.resetURl('', '/', 'initIndexPage' )
-    $('.container').hide()
-    $('#hero-view').show()
-    $('html').animate({scrollTop:0}, 400);
-    $('.fullscreen-bg').css('background', `url(../img/allHeroesEdited.jpg) center center / cover no-repeat`);
+  /************** custon select ********************/
+
+  $('.custom-select').on('click', 'li, input', function() {
+    console.log('this', this);
+    if ($(this).attr('data-value')) {
+      $(this).parent().siblings('input[type="text"]').val($(this).text())
+      $(this).parent().siblings('input[type="hidden"]').val($(this).attr('data-value')).change();
+      $(this).closest('form').change();
+    }
+    $(this).closest('.custom-select').toggleClass('z-index-nine');
+    $(this).closest('.custom-select').find('.custom-select-menu').slideToggle()
+
   })
+
+  /******* data for custom select autocomoplete *******/
+
+  let listText = $('#sort-menu').siblings('ul').text();
+  //let listOptions = listText.match(/^\s+(.*)\s+$/g).reduce((items,item) => `<option value="${item}">`);
+  let listOptions = listText.split('\n').reduce((items, item) => item.trim() ? items + `<option value="${item.trim()}">` : items);
+  //console.log('listOptions', listOptions);
+  $('#sort-select-data').html(listOptions)
+
 
   /*********** History ***********/
   window.onpopstate = function (event){
-    console.log('URL:', document.location, 'State:', event.state);
-    if (event.state){
-      let fn = event.state.callback;
-      app.initFunctions[fn](event.state.data)
-    }
+    if ( !event.state ) return app.initFunctions['homeNavItem']();
+    let fn = event.state.callback
+    let fargs = (fn === 'initStatsPage') ? app.Hero.all[event.state.data] : event.state.data;
+    app.initFunctions[fn](fargs);
   }
-
 })
-
