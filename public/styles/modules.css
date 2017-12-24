@@ -32,15 +32,7 @@ header h3 {
   display: block;
 }
 
-
-
-/* #icon:click + #home {
-  display: block;
-} */
-
-
 /* hero list view on mobile */
-
 #hero-view {
   margin-top: 140px;
 }
@@ -70,7 +62,6 @@ header h3 {
 
 
 /* footer */
-
 footer h3:hover {
   text-shadow: 0px -2px 0px rgba(0, 0, 0, 1), 0 0 5px rgba(255, 255, 255, 0.8), 0 -4px 15px rgba(255, 255, 255, 0.5);
 }
@@ -81,7 +72,6 @@ footer p span:hover {
 
 
 /* Pro View */
-
 #pro-view {
   margin-top: 160px;
   list-style: none;
@@ -99,14 +89,17 @@ footer p span:hover {
   text-align: center;
   width: 100%
 }
+
 th {
   height: 50px;
 }
+
 th, td {
   padding: 15px;
-
 }
 
+
+/****custom select ***/
 .custom-select-wrap {
   position: relative;
   height: 48px;
@@ -115,8 +108,6 @@ th, td {
 
 .custom-select {
   position: absolute;
-  /* width: 300px; */
-  /* width: 100%; */
   width: 80%;
   left: 10%;
   background-color: rgba(0, 13, 25, .5);
@@ -125,7 +116,6 @@ th, td {
   border: 1px solid #90a0c0;
   border-radius: 4px;
 }
-
 
 .sort-select{
   z-index: 9;
@@ -155,7 +145,7 @@ th, td {
   background-color: rgba(0, 13, 25, .5);
   text-indent: 15px;
   overflow: auto;
-  height: 30vh;
+  max-height: 30vh;
 }
 
 .custom-select-menu li {
@@ -178,8 +168,8 @@ th, td {
 }
 
 /* Desktop Styling */
-
 @media screen and (min-width: 780px) {
+
   body {
     margin-top: 180px;
   }
@@ -224,9 +214,7 @@ th, td {
     text-shadow: 0px -2px 0px rgba(0, 0, 0, 1), 0 0 5px rgba(255, 255, 255, 0.8), 0 -4px 15px rgba(255, 255, 255, 0.5);
   }
 
-
   /* desktop styling for stats page */
-
   #hero-header {
     width: 100%;
   }
@@ -241,7 +229,6 @@ th, td {
 
   #stats-div ul {
     columns: 2;
-    /* background-color: rgba(255, 255, 255, 0.05); */
     font-size: 1.5em;
   }
 
@@ -253,23 +240,24 @@ th, td {
     float: right;
   }
 
+  /****custom select ***/
   .custom-select-wrap {
     top: -75px;
   }
 
 }
 
-
 /* #sort-form */
-
 @media screen and (min-width: 960px) {
 
-.custom-select-wrap {
-  float: left;
-  width: 285px;
-}
-.custom-select {
-  width: 285px;
-  left: 0;
+/****custom select ***/
+  .custom-select-wrap {
+    float: left;
+    width: 285px;
   }
+  .custom-select {
+    width: 285px;
+    left: 0;
+  }
+  
 }

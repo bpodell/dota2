@@ -1,3 +1,5 @@
+'use strict';
+
 var app = app || {};
 
 (function(module) {
@@ -48,7 +50,7 @@ $(function() {
   $.get('/etags').then(etag => {
     app.etag = etag
     app.heroView.initIndexPage()
-    $('#sort-form').on('change', function(e) {
+    $('#sort-form').on('change', function() {
       let eVal = $('#sort-menu').val()
       app.Hero.all.sort((a,b) => a[eVal] < b[eVal] ? -1 : 1 );
       if ($('#asc-menu').val() === 'desc') app.Hero.all.reverse();
@@ -68,7 +70,6 @@ $(function() {
   /************** custon select ********************/
 
   $('.custom-select').on('click', 'li, input', function() {
-    console.log('this', this);
     if ($(this).attr('data-value')) {
       $(this).parent().siblings('input[type="text"]').val($(this).text())
       $(this).parent().siblings('input[type="hidden"]').val($(this).attr('data-value')).change();
@@ -78,15 +79,6 @@ $(function() {
     $(this).closest('.custom-select').find('.custom-select-menu').slideToggle()
 
   })
-
-  /******* data for custom select autocomoplete *******/
-
-  let listText = $('#sort-menu').siblings('ul').text();
-  //let listOptions = listText.match(/^\s+(.*)\s+$/g).reduce((items,item) => `<option value="${item}">`);
-  let listOptions = listText.split('\n').reduce((items, item) => item.trim() ? items + `<option value="${item.trim()}">` : items);
-  //console.log('listOptions', listOptions);
-  $('#sort-select-data').html(listOptions)
-
 
   /*********** History ***********/
   window.onpopstate = function (event){

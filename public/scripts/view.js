@@ -44,7 +44,7 @@ var app = app || {};
   view.pros_nav_item = () => {
     $('.container').hide();
     $('html').animate({ scrollTop: 0 }, 600);
-    initProPage();
+    module.proView.initProPage();
     $('.fullscreen-bg').css('background', `url(../img/aegis.png) center center / cover no-repeat`);
   }
 

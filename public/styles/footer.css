@@ -1,170 +1,174 @@
 .footer-box {
-	background-color:#292c2f;
-	box-shadow:0 1px 1px 0 rgba(0,0,0,0.12);
-	box-sizing:border-box;
-	width:100%;
-	font:bold 16px sans-serif;
-	text-align:left;
-	padding:50px 60px 40px;
-	margin-top:80px;
-	overflow:hidden
-	}
-	
-	.footer-box .left-foot {
-	float:left
-	}
-	
-	.footer-box h3 {
-	color:#fff;
-	font:36px Cinzel;
-	margin:0 0 10px
-	}
-	
-	.footer-box h3 span {
-	color:#f30700;
-	}
-	
-	.footer-box .footer-links {
-	color:#fff;
-	margin:0 0 10px;
-	padding:0
-	}
-	
-	.footer-box .footer-links a {
-	display:inline-block;
-	line-height:1.8;
-	text-decoration:none;
-	color:inherit
-	}
-	
-	.footer-box .dota-dossier {
-	color:#8f9296;
-	font-size:14px;
-	font-weight:400;
-	margin:0
-	}
-	
-	.footer-box .footer-icons {
-	margin-top:40px
-	}
-	
-	.footer-box .footer-icons a {
-	display:inline-block;
-	width:35px;
-	height:35px;
-	cursor:pointer;
-	background-color:#33383b;
-	border-radius:2px;
-	font-size:20px;
-	color:#fff;
-	text-align:center;
-	line-height:35px;
-	margin-right:3px;
-	margin-bottom:5px
-	}
-	
-	.footer-box .right-foot {
-	float:right
-	}
-	
-	.footer-box .right-foot p {
-	display:inline-block;
-	vertical-align:top;
-	margin:15px 42px 0 0;
-	color:#fff
-	}
-	
-	.footer-box form {
-	display:inline-block
-	}
-	
-	.footer-box form input,.footer-box form textarea {
-	display:block;
-	border-radius:3px;
-	box-sizing:border-box;
-	background-color:#1f2022;
-	box-shadow:0 1px 0 0 rgba(255,255,255,0.1);
-	border:none;
-	resize:none;
-	font:14px inherit;
-	font-weight:normal;
-	color:#d1d2d2;
-	width:400px;
-	padding:18px
-	}
-	
-	.footer-box ::-webkit-input-placeholder {
-	color:#5c666b
-	}
-	
-	.footer-box ::-moz-placeholder {
-	color:#5c666b;
-	opacity:1
-	}
-	
-	.footer-box :-ms-input-placeholder {
-	color:#5c666b
-	}
-	
-	.footer-box form input {	
-	height:55px;
-	margin-bottom:15px
-	}
-	
-	.footer-box form textarea {
-	height:100px;
-	margin-bottom:20px
-	}
-	
-	.footer-box form button {
-	border-radius:3px;
-	background-color:#33383b;
-	color:#fff;
-	border:0;
-	padding:15px 50px;
-	font-weight:700;
-	float:right
-	}
-	
-	@media (max-width: 960px) {
+	background-color: #292c2f;
+	box-shadow: 0 1px 1px 0 rgba(0,0,0,0.12);
+	box-sizing: border-box;
+	width: 100%;
+	font: bold 16px sans-serif;
+	text-align: left;
+	padding: 50px 60px 40px;
+	margin-top: 80px;
+	overflow: hidden;
+}
+
+.footer-box .left-foot {
+	float: left;
+}
+
+.footer-box h3 {
+	color: #fff;
+	font: 36px Cinzel;
+	margin: 0 0 10px;
+}
+
+.footer-box h3 span {
+	color: #f30700;
+}
+
+.footer-box .footer-links {
+	color: #fff;
+	margin: 0 0 10px;
+	padding: 0;
+}
+
+.footer-box .footer-links a {
+	display: inline-block;
+	line-height: 1.8;
+	text-decoration: none;
+	color: inherit;
+}
+
+.footer-box .dota-dossier {
+	color: #8f9296;
+	font-size: 14px;
+	font-weight: 400;
+	margin: 0;
+}
+
+.footer-box .footer-icons {
+	margin-top: 40px;
+}
+
+.footer-box .footer-icons a {
+	display: inline-block;
+	width: 35px;
+	height: 35px;
+	cursor: pointer;
+	background-color: #33383b;
+	border-radius: 2px;
+	font-size: 20px;
+	color: #fff;
+	text-align: center;
+	line-height: 35px;
+	margin-right: 3px;
+	margin-bottom: 5px;
+}
+
+.footer-box .right-foot {
+	float: right;
+}
+
+.footer-box .right-foot p {
+	display: inline-block;
+	vertical-align: top;
+	margin: 15px 42px 0 0;
+	color: #fff;
+}
+
+.footer-box form {
+	display: inline-block;
+}
+
+.footer-box form input,.footer-box form textarea {
+	display: block;
+	border-radius: 3px;
+	box-sizing: border-box;
+	background-color: #1f2022;
+	box-shadow: 0 1px 0 0 rgba(255,255,255,0.1);
+	border: none;
+	resize: none;
+	font: 14px inherit;
+	font-weight: normal;
+	color: #d1d2d2;
+	width: 400px;
+	padding: 18px;
+}
+
+.footer-box ::-webkit-input-placeholder {
+	color: #5c666b;
+}
+
+.footer-box ::-moz-placeholder {
+	color: #5c666b;
+	opacity: 1;
+}
+
+.footer-box :-ms-input-placeholder {
+	color: #5c666b;
+}
+
+.footer-box form input {
+	height: 55px;
+	margin-bottom: 15px;
+}
+
+.footer-box form textarea {
+	height: 100px;
+	margin-bottom: 20px;
+}
+
+.footer-box form button {
+	border-radius: 3px;
+	background-color: #33383b;
+	color: #fff;
+	border: 0;
+	padding: 15px 50px;
+	font-weight: 700;
+	float: right;
+}
+
+@media (max-width: 960px) {
+
 	.footer-box {
-	font:bold 14px sans-serif
+		font: bold 14px sans-serif;
 	}
-	
+
 	.footer-box .dota-dossier {
-	font-size:12px
+		font-size: 12px;
 	}
-	
+
 	.footer-box form input,.footer-box form textarea {
-	width:250px
+		width: 250px;
 	}
-	
+
 	.footer-box form button {
-	padding:10px 35px
-	}
+		padding: 10px 35px;
 	}
 	
-	@media (max-width: 780px) {
+}
+
+@media (max-width: 780px) {
+
 	.footer-box {
-	padding:30px
+		padding: 30px;
 	}
-	
+
 	.footer-box .left-foot,.footer-box .right-foot {
-	float:none;
-	max-width:300px;
-	margin:0 auto
+		float: none;
+		max-width: 300px;
+		margin: 0 auto;
 	}
-	
+
 	.footer-box .left-foot {
-	margin-bottom:40px
+		margin-bottom: 40px;
 	}
-	
+
 	.footer-box form {
-	margin-top:30px;
-	display:block
+		margin-top: 30px;
+		display: block;
 	}
-	
+
 	.footer-box form button {
-	float:none
+		float: none;
 	}
-	}
+
+}
