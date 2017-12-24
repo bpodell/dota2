@@ -1,60 +1,58 @@
 header {
-    background-color: #000d19;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
+  background-color: #000d19;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
 }
 
 header h3 span {
-    color: #f30700;
+  color: #f30700;
 }
 
 main {
-    min-height: 100vh;
-    width: 80vw;
-    margin: 0 auto;
+  min-height: 100vh;
+  width: 80vw;
+  margin: 0 auto;
 }
 
 footer {
-    opacity: 0.9;
-    height: 25vh;
-    margin-top: 10vh;
-    background-color: #000d19;
+  opacity: 0.9;
+  margin-top: 10vh;
+  background-color: #000d19;
 }
 
 #stats-template{
-    text-align: center;
+  text-align: center;
 }
 #stats-div{
-    margin-top: 140px;
+  margin-top: 140px;
 }
 #stats-div ul,li,h2,h3 {
-    text-align: center;
-    margin-bottom: 15px;
-    /* margin-top: 120px; */
+  text-align: center;
+  margin-bottom: 15px;
 }
 
 #stats-div li {
-    line-height: 32px;
-    margin-bottom: 0;
-    background-color: rgba(255, 255, 255, 0.1)
+  line-height: 32px;
+  margin-bottom: 0;
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 #stats-img{
-    margin: 0 auto;
-    display: block;
+  margin: 0 auto;
+  display: block;
 }
 #stats-h2{
-    font-size: 6vh;
-    min-height: 40px;
+  font-size: 6vh;
+  min-height: 40px;
 }
 .AGI {
-    color: #68f442;
+  color: #68f442;
 }
 .INT {
-    color: #00f2ff
+  color: #00f2ff;
 }
 .STR {
-    color: #ff0000
+  color: #ff0000;
 }
