@@ -1,6 +1,6 @@
 body {
   color: #fff;
-  font: Cinzel, helvetica, sans-serif;
+  font-family: Cinzel, helvetica, sans-serif;
   cursor: default;
 }
 
@@ -32,10 +32,6 @@ body {
 body a {
   text-decoration: none;
 }
-
-/* .is-hidden {
-  display: none;
-} */
 
 #about-view {
   display: none;
